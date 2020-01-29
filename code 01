@@ -1,0 +1,85 @@
+#include<stdio.h>
+double square(double num);
+int main()
+{
+    int num;
+    double n;
+    printf("Input any number for square: ");
+    scanf("%d", &num);
+    n=square(num);
+    printf("The square of %d is:%.2f\n",num,n);
+    return 0;
+}
+double square(double num)
+{
+    int r;
+    r=num*num;
+    return r;
+}
+#include<stdio.h>
+int swapFunction1(int n1, int n2);
+int swapFunction2(int n1, int n2);
+int main()
+{
+    int n1,n2;
+    printf("enter number n1= ");
+    scanf("%d", &n1);
+    printf("enter number n2= ");
+    scanf("%d", &n2);
+    n1=swapFunction1(n1,n2);
+    n2=swapFunction2(n1,n2);
+    printf("n1=%d, n2=%d\n", n1, n2);
+    return 0;
+
+}
+int swapFunction1(int n1, int n2)
+{
+    n1=n2;
+    return(n1);
+}
+int swapFunction2(int n1, int n2)
+{
+    n2=n1;
+    return(n2);
+}
+#include<stdio.h>
+int swapFunction(int p, int q);
+
+int main()
+{
+    int n1,n2;
+    printf("enter number n1= ");
+    scanf("%d",&n1);
+    printf("enter number n2= ");
+    scanf("%d",&n2);
+    printf("Before swapping: n1 = %d, n2 = %d ",n1,n2);
+    swapFunction(n1,n2);
+    printf("\nAfter swapping: n1 = %d, n2 = %d \n\n",n1,n2);
+    return 0;
+}
+int swapFunction(int p, int q)
+{
+    int n=p;
+    p=q;
+    q=n;
+    return(p, q);
+}
+int main()
+{
+    int n1,n2;
+    printf("enter number n1= ");
+    scanf("%d",&n1);
+    printf("enter number n2= ");
+    scanf("%d",&n2);
+    printf("Before swapping: n1 = %d, n2 = %d ",n1,n2);
+    swapFunction(n1,n2);
+    printf("\nAfter swapping: n1 = %d, n2 = %d \n\n",n1,n2);
+    return 0;
+}
+int swapFunction(int p, int q)
+{
+    p=p+q;
+    q=p-q;
+    p=p-q;
+    return(p, q);
+}
