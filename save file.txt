@@ -1,0 +1,499 @@
+#include <iostream>
+
+using namespace std;
+
+int main()
+{
+    int a=4, b=5,c;
+    //cin>>a;
+    //cin>>b;
+    c=a+b;
+    cout<<c<<endl;
+//    system("pause");
+    return 0;
+}
+
+#include<stdio.h>
+int main()
+{
+    int aray1[]={11,22,33,44,50,60,70,80,90,100};
+    int ara2[10];
+    int i,j;
+
+    for(i=9,j=0;i>=0;i--,j++){
+        ara2[i]=aray1[j];
+
+    }
+
+    for(i=0; i<=9; i++){
+         printf("%d is the hhh element in=%d\n",i+1,ara2[i]);
+    }
+
+    return 0;
+
+
+
+#include<stdio.h>
+int main()
+{
+    double total_marks[20];
+    int fst_marks[20]={5,8,5,8,6,4,7,9,5,6,7,8,5,4,6,9,7,5,8,4,5};
+    int snd_marks[20]={5,6,6,6,8,7,5,9,4,5,8,5,8,7,5,8,5,8,5,8,5};
+    int trd_marks[20]={8,7,9,6,5,7,4,5,3,7,8,9,6,5,7,5,8,4,6,9,5};
+
+    int i;
+    for( i=0; i<=20; i++){
+        total_marks[i]= fst_marks[i]/4.0+snd_marks[i]/4.0+ trd_marks[i]/2.0;
+    }
+
+    for(i=0; i<20; i++){
+        printf("Roll no:%d, total marks=%0.05lf\n", i+1, total_marks[i]);
+    }
+    return 0;
+}
+
+
+#include<stdio.h>
+int main()
+{
+
+    /*
+    double total_marks[20];
+    int |fst_marks[20]={5,8,5,8,6,4,7,9,5,6,7,8,5,4,6,9,7,5,8,4,5};
+    int snd_marks[20]={5,6,6,6,8,7,5,9,4,5,8,5,8,7,5,8,5,8,5,8,5};
+    int trd_marks[20]={8,7,9,6,5,7,4,5,3,7,8,9,6,5,7,5,8,4,6,9,5};
+
+
+
+    int i;
+    for( i=0; i<=20; i++){
+        total_marks[i]= fst_marks[i]/4.0+snd_marks[i]/4.0+ trd_marks[i]/2.0;
+    }
+
+    for(i=0; i<20; i++){
+        printf("Roll no:%d, total marks=%0.5lf\n", i+1, total_marks[i]);
+    }
+    */
+
+
+
+    int studentsRoll[10]={1,5,6,7,2,3,8,9,12,11};
+
+    int searchedRoll=12;
+
+    int isFound=0;
+    int position;
+
+    printf("Searching Value : %d\n",searchedRoll);
+
+
+
+    printf("Data set :");
+    for(int i=0; i<10; i++){
+        printf("%d ",studentsRoll[i]);
+    }
+
+printf("\n\n");
+
+    for(int i=0; i<10; i++){
+        printf("\nChecking position : %d roll : %d",i,studentsRoll[i]);
+
+        if(studentsRoll[i]==searchedRoll){
+            isFound=1;
+            position=i;
+            break;
+        }
+    }
+
+    printf("\n\n");
+
+    if(isFound==1){
+        printf("Value : %d\nfound at position: %d",searchedRoll,position);
+    }else{
+        printf("Value : %d not found",searchedRoll);
+    }
+
+    return 0;
+}
+
+#include<stdio.h>
+int main()
+{
+    int number[10]={2,4,6,8,10,12,14,16,18,20};
+    int checknumber=12;
+    int i;
+    int found=0;
+    int position;
+    printf("Data set:");
+    for(i=0;i<10;i++){
+            printf("%d ", number[i]);
+
+        }
+    printf("\nchecknumber:%d", checknumber);
+
+    printf("\n\n");
+
+    for(i=0;i<10;i++){
+        printf("checknumber:%d, position:%d\n",number[i],i);
+        if(number[i]==checknumber){
+            found=1;
+            position=i;
+            break;
+
+        }
+
+    }
+    if(found==1){
+        printf("checknumber is :%d, checknumber position:%d",number[i], position);
+    }
+        else{
+            printf("value not found");
+        }
+
+    return 0;
+}
+
+
+#include<stdio.h>
+int main()
+{
+    int total_marks[40]={63,58,69,58,78,98,69,87,96,65,65,75,87,95,68,50,60,50,60,50,85,98,65,65,55,50,62,50,48,57,65,47,85,69,62,65,85,87,96,87};
+    int marks;
+    int i;
+    for(marks=01 ; marks<=100; marks++){
+        int count=0;
+        for(i=0; i<40; i++){
+            if(total_marks[i]==marks){
+                count++;
+            }
+        }
+
+        printf("marks=%d,\tcount=%d\n", marks, count);
+    }
+
+
+    return 0;
+}
+
+
+
+#include<stdio.h>
+int main()
+{
+    int total_marks[40]={63,58,69,58,78,98,69,87,96,65,65,75,87,95,68,50,60,50,60,50,85,98,65,65,55,50,62,50,48,57,65,47,85,69,62,65,85,87,96,87};
+    int marks_count[101];
+    int i;
+    for(i=0; i<101; i++){
+        marks_count[i]=0;
+    }
+    for(i=0; i<40; i++){
+        marks_count[total_marks[i]]++;
+    }
+    for(i=50; i<=100; i++){
+        printf("Marks: %d \tcount: %d\n",i, marks_count[i] );
+    }
+    return 0;
+}
+
+
+#include<stdio.h>
+int main()
+{
+    int marks[7]={10,7,3,10,8,4,3};
+    int uniquenum[7];
+    int uniquecount[7];
+    int i,j;
+    int ucount;
+
+    for(i=0; i<7; i++){
+        int count=1;
+        int checknumber=marks[i];
+        if(checknumber=uniquenum[ucount]){
+            continue;
+        }
+        for(j=j+1; j<7; j++){
+            if(checknumber==marks[j]){
+                count++;
+            }
+        }
+       uniquenum[ucount]=checknumber;
+       uniquecount[ucount]=count;
+       ucount++;
+    }
+    printf("%d, %d"
+    return 0;
+}
+
+
+
+#include<stdio.h>
+int main()
+{
+    int allArray[10]={10,7,3,10,8,4,3,5,8,11};
+    int evenArray[10];
+    int oddArray[10];
+    int oddCount=0;
+    for(int i=0; i<10; i++){
+        evenArray[i]=oddArray[i]=0;
+    }
+    for(int i=0; i<10; i++){
+        if(allArray[i]%2==0){
+                int evenCount=0;
+                evenArray[evenCount]=allArray[i];
+                evenCount++;
+        }else{
+                int oddCount=0;
+                oddArray[oddCount]=allArray[i];
+                oddCount++;
+        }
+    }
+    printf("\nEven Numbers : \n");
+    for(int i=0; i<10; i++){
+        printf(" %d", evenArray[i]);
+    }
+    printf("\nOdd Numbers : \n");
+
+    for(int i=0; i<10; i++){
+        printf(" %d", oddArray[i]);
+    }
+    return 0;
+}
+
+#include<stdio.h>
+int main()
+{
+    int totalMarks[]={9,3,5,6,12,7,9,8,6,23,54};
+    int marksCount[11];
+    for(int i=0; i<11; i++){
+        marksCount[i]=0;
+    }
+    for(int i=0; i<12; i++){
+        marksCount[totalMarks[i]]++;
+        for(int j=0; j<=10; j++){
+            printf("%d", marksCount[j]);
+        }
+        printf("\n");
+    }
+    return 0;
+}
+
+#include<stdio.h>
+int add(double a,double b)
+{
+    double sum=a+b;
+    return sum;
+}
+
+int main()
+{
+    double a,b,c;
+    a=b=9.5;
+    c=add(a,b);
+    printf("the summation is: %0.03lf\n", c);
+    return 0;
+}
+
+#include<stdio.h>
+double add(double a,double b);
+int main()
+{
+    double a,b,c;
+    a=2.3, b=2.0;
+    c=add(a,b);
+    printf("the summation is: %0.03lf\n", c);
+    return 0;
+}
+double add(double p,double q)
+{
+    double sum=p+q;
+    return sum;
+}
+
+#include<stdio.h>
+int subFunction(int x);
+int main()
+{
+    int x=10, y=20,z=30;
+    z=subFunction(x);
+    printf("x=%d, y=%d, z=%d\n", x,y,z);
+    return 0;
+}
+
+int subFunction(int x)
+{
+    int y=x;
+    x=2*y;
+    return (x*y);
+}
+
+#include<stdio.h>
+int findMax(int bot[11], int n);
+int main()
+{
+   int bot[]={-55,67,78553,44,965,32,58,95,62,35,44};
+   int n=11;
+   int max=findMax(bot,n);
+   printf("%d\n", max);
+   return 0;
+
+}
+int findMax(int bot[], int n)
+{
+    int max=bot[0];
+    int i;
+    for(i=1; i<n; i++){
+        if(bot[i]>max){
+            max=bot[i];
+        }
+    }
+    return max;
+}
+#include<stdio.h>
+int findMax(int aray[],int n);
+int main()
+{
+    int aray[]={12,34,56,45,65,25,36};
+    int n=7;
+    int max=findMax(aray,n);
+    printf("max=%d",max);
+    return 0;
+    }
+int findMax(int aray[],int n)
+{
+    int max=aray[0];
+    for(int i=0; i<n; i++){
+        if(aray[i]>max){
+            max=aray[i];
+        }
+    }
+    return max;
+}
+
+#include<stdio.h>
+int main()
+{
+    int aray[4]={4,6,8,9};
+    printf("%d\n", aray[0]);
+    testFunction(aray);
+    printf("%d\n", aray[0]);
+    return 0;
+}
+void testFunction(int aray[])
+{
+    aray[0]=98;
+    return;
+}
+
+#include<stdio.h>
+int main()
+{
+    int aray[9]={3,4,6,8,9,10,23,45,67};
+    int lowIndex=0;
+    int highIndex=9;
+    int num=8;
+    int mid;
+    while(lowIndex<=highIndex){
+        mid=(lowIndex+highIndex)/2;
+        if(num==aray[mid]){
+                break;
+               }
+        else if(num>aray[mid]){
+            lowIndex=mid+1;
+        }
+        else{
+            highIndex=mid-1;
+        }
+    }
+    if(highIndex<lowIndex){
+        printf("the searching value not found");
+    }
+    else{
+        printf("%d is found in the array. it is the %dth araay", aray[mid], mid);
+    }
+    return 0;
+}
+#include<stdio.h>
+int main()
+{
+    char Country[]={'B','A','N','G','L','A','D','E','S','H','\0'};
+    int i,lenght;
+    lenght=10;
+    for(i=0; i<lenght; i++){
+        if(Country[i]>='A' && Country[i]<='Z'){
+            Country[i]='a'+(Country[i]-'A');
+        }
+    }
+    printf("%s\n",Country);
+
+    return 0;
+}
+
+#include<stdio.h>
+int Length(char Country[]);
+int main()
+{
+    char Country[]={'B','A','N','G','L','A','D','E','S','H','\0'};
+    int i,length;
+    length(Country[]);
+    for(i=0; i<length; i++){
+        if(Country[i]>='A' && Country[i]<='Z'){
+            Country[i]='a'+(Country[i]-'A');
+        }
+    }
+    printf("%s\n",Country);
+
+    return 0;
+}
+int Length(char Country[])
+{
+    int length=0;
+    for(int i=0; Country[i] !='\0'; i++){
+        length++;
+    }
+    return length;
+}
+
+#include<stdio.h>
+double square(double num);
+int main()
+{
+    int num;
+    double n;
+    printf("Input any number for square: ");
+    scanf("%d", &num);
+    n=square(num);
+    printf("The square of %d is:%.2f\n",num,n);
+    return 0;
+}
+double square(double num)
+{
+    int r;
+    r=num*num;
+    return r;
+}
+#include<stdio.h>
+int swapFunction1(int n1, int n2);
+int swapFunction2(int n1, int n2);
+int main()
+{
+    int n1,n2;
+    printf("enter number n1= ");
+    scanf("%d", &n1);
+    printf("enter number n2= ");
+    scanf("%d", &n2);
+    n1=swapFunction1(n1,n2);
+    n2=swapFunction2(n1,n2);
+    printf("n1=%d, n2=%d\n", n1, n2);
+    return 0;
+
+}
+int swapFunction1(int n1, int n2)
+{
+    n1=n2;
+    return(n1);
+}
+int swapFunction2(int n1, int n2)
+{
+    n2=n1;
+    return(n2);
+}
