@@ -1,0 +1,59 @@
+#include<stdio.h>
+
+int main()
+{
+    //int log[10]={1,2,3,4,5,6,7,8,9,10};
+    int pearlite[10][10];
+    int even[10][10];
+    int odd[10][10];
+
+    for(int i=0; i<10; i++){
+        for(int j=0; j<10; j++){
+            pearlite[i][j]=(i+1)*(j+1);
+        }
+
+    }
+    for(int i=0; i<10; i++){
+        for(int j=0; j<10; j++){
+        printf("%d x %d = %d\n",(i+1), (j+1), pearlite[i][j]);
+        }
+
+        printf("\n");
+    }
+
+        int countEven=0;
+        printf("Even:");
+    for(int i=0; i<10; i++){
+        for(int j=0; j<10; j++){
+            if((pearlite[i][j])%2==0){
+                printf("%5d", pearlite[i][j]);
+                countEven++;
+                }
+        }
+    }
+    printf("\n\nTotal Even Number: %d", countEven);
+    int countOdd=0;
+    printf("\n\nOdd:");
+    for(int i=0; i<10; i++){
+        for(int j=0; j<10; j++){
+            if((pearlite[i][j])%2!=0){
+                printf("%5d", pearlite[i][j]);
+                countOdd++;
+                }
+            }
+        }
+        printf("\n\nTotal Odd Number: %d", countOdd);
+        printf("\n\n");
+
+        int totalSum=0;
+    for(int i=0; i<10; i++){
+        for(int j=0; j<10; j++){
+            totalSum=pearlite[i][j]+totalSum;
+        }
+    }
+    printf("summation of totalSum: %d\n", totalSum);
+    printf("\n\n");
+
+    return 0;
+}
+
