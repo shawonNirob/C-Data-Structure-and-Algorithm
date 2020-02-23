@@ -1,48 +1,17 @@
-#include <stdio.h>
-
-int main()
-{
-    double marks[4][10]={{80.0,45.0,67.0,89.0,34.0,65.0,36.0,98.0,65.0,25.0},{89.0,69.0,63.0,98.0,97.0,48.0,57.0,69.0,62.0,35.0},{78.0,96.0,87.0,85.0,67.0,58.0,94.0,52.0,48.0,79.0},{0,0,0,0,0,0,0,0,0,0}};
-    for(int i=0; i<10; i++){
-        marks[3][i]=marks[0][i]/4+marks[1][i]/4+marks[2][i]/2;
-
-        printf("roll no:%d total marks:%0.10lf\n", i+1, marks[3][i]);
-    }
-
-    return 0;
-}
-#include <stdio.h>
-
-int main()
-{
-    int marks[4][10];
-    for(int i=0; i<4; i++){
-        for(int j=0; i<10; i++){
-            scanf("%d", marks[i][10]);
-        }
-    }
-    //double marks[4][10]={{80.0,45.0,67.0,89.0,34.0,65.0,36.0,98.0,65.0,25.0},{89.0,69.0,63.0,98.0,97.0,48.0,57.0,69.0,62.0,35.0},{78.0,96.0,87.0,85.0,67.0,58.0,94.0,52.0,48.0,79.0},{0,0,0,0,0,0,0,0,0,0}};
-    for(int i=0; i<10; i++){
-        marks[3][i]=marks[0][i]/4+marks[1][i]/4+marks[2][i]/2;
-
-        printf("roll no:%d total marks:%0.10lf\n", i+1, marks[3][i]);
-    }
-
-    return 0;
-}
 #include<stdio.h>
 
 int main()
 {
     //int log[10]={1,2,3,4,5,6,7,8,9,10};
     int pearlite[10][10];
+    int even[10][10];
+    int odd[10][10];
 
     for(int i=0; i<10; i++){
         for(int j=0; j<10; j++){
             pearlite[i][j]=(i+1)*(j+1);
-        //printf("%d",pearlite[i][j]);
         }
-        //printf("%d", pearlite[i][j]);
+
     }
     for(int i=0; i<10; i++){
         for(int j=0; j<10; j++){
@@ -51,6 +20,41 @@ int main()
 
         printf("\n");
     }
+
+        int countEven=0;
+        printf("Even:");
+    for(int i=0; i<10; i++){
+        for(int j=0; j<10; j++){
+            if((pearlite[i][j])%2==0){
+                printf("%5d", pearlite[i][j]);
+                countEven++;
+                }
+        }
+    }
+    printf("\n\nTotal Even Number: %d", countEven);
+    int countOdd=0;
+    printf("\n\nOdd:");
+    for(int i=0; i<10; i++){
+        for(int j=0; j<10; j++){
+            if((pearlite[i][j])%2!=0){
+                printf("%5d", pearlite[i][j]);
+                countOdd++;
+                }
+            }
+        }
+        printf("\n\nTotal Odd Number: %d", countOdd);
+        printf("\n\n");
+
+        int totalSum=0;
+    for(int i=0; i<10; i++){
+        for(int j=0; j<10; j++){
+            totalSum=pearlite[i][j]+totalSum;
+        }
+    }
+    printf("summation of totalSum: %d\n", totalSum);
+    printf("\n\n");
+
     return 0;
 }
+
 
