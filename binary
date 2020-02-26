@@ -1,0 +1,23 @@
+
+int main()
+{
+
+    while(1){
+    char binary[size];
+    //for(int i=0; i<size; i++){
+    scanf("%s", &binary);
+    int length=strlen(binary);
+    int decimal=0,position=length-1;
+    for(int index=0;index<length;index++){
+        decimal+=(binary[index]-'0')*pow(2,position);
+        position--;
+    }
+    printf("decimal is %d", decimal);
+
+    printf("\n\n");
+}
+    return 0;
+
+}
+
+
