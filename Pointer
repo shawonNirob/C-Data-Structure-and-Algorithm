@@ -1,0 +1,329 @@
+#include<stdio.h>
+int main()
+{
+    int x=10;
+
+    int *p;
+    p = &x;
+
+    printf("*p = %d\n", *p);
+    printf("value of p is %p\n", &p);
+
+    return 0;
+}
+#include<stdio.h>
+int main()
+{
+    double pi=3.141659265358;
+    int *ptr;
+    ptr = &pi;
+
+    printf("value of pi = %lf\n", pi);
+    printf("vslue of pi = %lf\n", *ptr);
+
+    return 0;
+}
+#include<stdio.h>
+int main()
+{
+    int x=10;
+    int *p;
+    p= &x;
+
+    printf("value of x=%d\n", x);
+    printf("value of x=%d\n", *p);
+    printf("value of p/Adress of x= %p\n", p);
+
+    *p=20;
+
+    printf("value of x = %d\n", x);
+    printf("value of x = %d\n", *p);
+    printf("Adress of x=%p\n", &x);
+    printf("value of p/adress of x= %p\n", p);
+
+    return 0;
+}
+
+#include<stdio.h>
+int main()
+{
+    int x=10;
+    int *p;
+    p= &x;
+
+    printf("value of x=%d\n", x);
+    printf("value of *p=%d\n", *p);
+    printf("Adress of x=%p\n", &x);
+    printf("value of p=%p\n", p);
+    printf("\n\n");
+
+    *p=20;
+    p= &x;
+
+    printf("value of x=%d\n", x);
+    printf("value of *p=%d\n", *p);
+    printf("Adress of x=%p\n", &x);
+    printf("value of p=%p\n", p);
+    printf("\n\n");
+
+    x=15;
+
+    printf("value of x=%d\n", x);
+    printf("value of *p=%d\n", *p);
+    printf("Adress of x=%p\n", &x);
+    printf("value of p=%p\n", p);
+    printf("\n\n");
+
+    return 0;
+
+}
+
+#include<stdio.h>
+int main()
+{
+    int x=10;
+    int y;
+    int *p;
+    printf("value of x=%d\n", x);
+
+
+    p=&x;
+    y=*p;
+    *p=15;
+
+    printf("value of x=%d\n", x);
+    printf("value of *p=%d\n", *p);
+    printf("value of y=%d\n", y);
+    printf("Adress of x=%p\n", &x);
+    printf("value of p=%p\n", p);
+    printf("Adress of y=%p\n", &y);
+    printf("\n\n");
+
+
+    return 0;
+
+}
+
+#include<stdio.h>
+int main()
+{
+    int x=10,y;
+    int *p,*q;
+
+    p=&x;
+    y=*p;
+    *p=20;
+    *q=12;
+
+    //wrong program. must use *q= &y; otherwise
+
+    printf("value of x=%d\n", x);
+    printf("value of *p=%d\n", *p);
+    printf("value of y=%d\n", y);
+    printf("Adress of x=%p\n", &x);
+    printf("value of p=%p\n", p);
+    printf("value of q=%p\n", q);
+    printf("Adress of y=%p\n", &y);
+    printf("value pf *q=%d\n", *q);
+    printf("\n\n");
+
+
+    return 0;
+
+}
+
+#include<stdio.h>
+int main()
+{
+    int x=10,y;
+    int *p,*q;
+
+    p=&x;
+    q=&y;
+    y=*p;
+    *p=20;
+    *q=15;
+
+    //wrong program. must use *q= &y; otherwise
+
+    printf("value of x=%d\n", x);
+    printf("value of y=%d\n", y);
+    printf("value of *p=%d\n", *p);
+    printf("value pf *q=%d\n", *q);
+    printf("\n\n");
+    printf("Adress of x=%p\n", &x);
+    printf("value of p=%p\n", p);
+    printf("value of q=%p\n", q);
+    printf("Adress of y=%p\n", &y);
+    printf("\n\n");
+
+
+    return 0;
+
+}
+
+#include<stdio.h>
+int main()
+{
+    int x=100;
+    int *p=NULL;
+
+    printf("value of x=%d\n", x);
+    p=&x;
+    printf("value of *p=%d\n", *p);
+
+    return 0;
+
+}
+#include<stdio.h>
+int main()
+{
+    int x=23;
+    int *p;
+    p=&x;
+    *p=NULL;
+    //*p=100;
+
+    printf("value of *p=%d\n", *p);
+
+    return 0;
+
+}
+#include<stdio.h>
+int main()
+{
+    char s[]="Bangladesh";
+
+    printf("Name of the Country: %s\n", s);
+    printf("Adress of S: %p\n", s);
+
+    return 0;
+}
+#include<stdio.h>
+int main()
+{
+    char s[]="Bangladesh";
+    char *p;
+    p= s;
+
+    printf("Name of the Country: %s\n", p);
+    //printf("Adress of S: %p\n", s);
+
+    return 0;
+}
+#include <stdio.h>
+#include <stdlib.h>
+
+int main()
+{
+    char c1='A', c2='B', c3='C';
+    char *p1,*p2,*p3;
+    p3= &c3;
+    p2= &c2;
+    p1= &c1;
+
+    printf("%c, %c, %c\n", *p1,*p2,*p3);
+    printf("%p, %p, %p\n", p1,p2,p3);
+
+    return 0;
+
+}
+#include <stdio.h>
+#include <stdlib.h>
+
+int main()
+{
+    char s1[]="problem", s2[]="is", s3[]="undevelop people";
+    char *p1,*p2,*p3;
+    p3= &s3;
+    p2= &s2;
+    p1= &s1;
+
+    printf("%s %s %s\n", s1,s2,s3);
+    printf("%p %p %p\n", p1,p2,p3);
+
+    return 0;
+}
+
+#include <stdio.h>
+#include <stdlib.h>
+
+int main()
+{
+    char s1[]="problem", s2[]="is", s3[]="undevelop people";
+    char *p1,*p2,*p3;
+    p3= &s3;
+    p2= &s2;
+    p1= &s1;
+
+    printf("%s %s %s\n", s1,s2,s3);
+    printf("%p %p %p\n", p1,p2,p3);
+
+    return 0;
+}
+#include <stdio.h>
+#include <stdlib.h>
+
+int main()
+{
+    char c='A';
+    int *p;
+    int *p1;
+
+    p=&c;
+    p1=&p;
+
+    printf("Adress of c=%p\n", p);
+    printf("Adress of p=%p\n", p1);
+    printf("Adress of p1=%p\n", &p1);
+
+    return 0;
+}
+
+#include <stdio.h>
+#include <stdlib.h>
+
+int main()
+{
+    char c='A';
+    int *p,**p1;
+
+    p=&c;
+    p1=&p;
+
+    printf("value of c=%c\n", c);
+    printf("value of *p=%c\n", *p);
+    printf("value of **p1=%c\n", **p1);
+
+    printf("value of c=%c\n", c);
+    printf("value of c=%c\n", *p);
+    printf("value of c=%c\n", **p1);
+
+    return 0;
+}
+#include <stdio.h>
+#include <stdlib.h>
+
+int main()
+{
+    char c='A';
+    char *p, **q;
+
+    p=&c;
+    q=&p;
+
+    **q='B';
+
+    printf("value of c=%c\n", c);
+    printf("value of c=%c\n", *p);
+    printf("value of c=%c\n", **q);
+    printf("\n\n");
+    printf("Adress of c=%p\n", p);
+    printf("Adress of *p=%p\n", q);
+    printf("Adress of **q=%p\n", &q);
+    return 0;
+}
+
+
+
+
