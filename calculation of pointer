@@ -1,0 +1,227 @@
+#include<stdio.h>
+#include<stdlib.h>
+int main()
+{
+    int ara[]={100,300,500,700,900};
+    int *p;
+    p = ara;
+    //p= &ara;
+
+    printf("valu of *p=%d\n", *p);
+    printf("valu of *p+1=%d\n", *p+1);
+    printf("valu of *(p+1)=%d\n", *(p+1));
+     printf("valu of *p+2=%d\n", *p+2);
+    printf("valu of *(p+2)=%d\n", *(p+2));
+
+    return 0;
+}
+#include<stdio.h>
+#include<stdlib.h>
+int main()
+{
+    char s[]="bangladesh";
+
+    printf("Name of our country : %s\n", s);
+    printf("Adress of s: %p\n", s);
+
+    return 0;
+}
+#include<stdio.h>
+#include<stdlib.h>
+int main()
+{
+    char s[]="bangladesh";
+    char *p;
+
+    p=s;
+
+    printf("Name of our country : %s\n", p);
+    printf("Adress of s: %p\n", p);
+
+    return 0;
+}
+#include<stdio.h>
+#include<stdlib.h>
+int main()
+{
+    char *p="bangladesh";
+
+
+    printf("Name of our country : %s\n", p);
+    printf("Adress of *p: %p\n", p);
+
+    return 0;
+}
+#include<stdio.h>
+#include<stdlib.h>
+int main()
+{
+    char c1='a', c2='b', c3='c';
+    char *p1, *p2, *p3;
+    p1=&c1;
+    p2=&c2;
+    p3=&c3;
+
+    printf("%c,%4c,%4c\n",*p1, *p2, *p3);
+
+    return 0;
+}
+#include<stdio.h>
+#include<stdlib.h>
+int main()
+{
+    char s[]="bangladesh";
+    char *p;
+
+    p=s;
+
+    printf("Name of our country : %s\n", s);
+    printf("Adress of s: %p\n", s);
+
+    return 0;
+}
+#include<stdio.h>
+#include<stdlib.h>
+int main()
+{
+   int *p, a=18;
+   double *q, b=32.5;
+   float *r, c=3.6;
+   char *s, d='B';
+
+   p=&a;
+   q=&b;
+   r=&c;
+   s=&d;
+
+   printf("size of int: %d byte\n", sizeof(int));
+   printf("p=%p\n", p);
+   printf("p+1=%p\n", p+1);
+   printf("p+2=%p\n\n", p+2);
+
+   printf("size of double: %d byte\n", sizeof(double));
+   printf("q=%p\n", q);
+   printf("q+1=%p\n", q+1);
+   printf("q+2=%p\n\n", q+2);
+
+   printf("size of float: %d byte\n", sizeof(float));
+   printf("r=%p\n", r);
+   printf("r+1=%p\n", r+1);
+   printf("r+2=%p\n\n", r+2);
+
+   printf("size of char: %d byte\n", sizeof(char));
+   printf("s=%p\n", s);
+   printf("s+1=%p\n", s+1);
+   printf("s+2=%p\n\n", s+2);
+
+return 0;
+
+}
+#include<stdio.h>
+#include<stdlib.h>
+int main()
+{
+    void *vp;
+    int n=10;
+
+    vp=&n;
+
+    printf("value of n: %d\n", n);
+    printf("Adress of n: %p\n", vp);
+    printf("value of vp: %p\n", vp);
+    //printf("content of vp (*vp):%d\n", *vp);
+    printf("Conetnt of vp (*vp): %d\n", *((int *)vp));
+
+   return 0;
+
+}
+#include<stdio.h>
+#include<stdlib.h>
+int main()
+{
+    void *vp;
+    double n=10.89;
+
+    vp=&n;
+
+    printf("value of n: %lf\n", n);
+    printf("Adress of n: %p\n", vp);
+    printf("value of vp: %p\n", vp);
+    //printf("content of vp (*vp):%d\n", *vp);
+    printf("Conetnt of vp (*vp): %0.5lf\n", *(( double *)vp));
+
+   return 0;
+
+}
+#include<stdio.h>
+#include<stdlib.h>
+int add( int a, int b){
+    return a+b;
+}
+int sub(int a, int b){
+    return a-b;
+}
+
+int main()
+{
+    int (*func)(int, int);
+    int n1=10, n2=20;
+    func=&add;
+
+    printf("result: %d\n", func(n1, n2));
+
+    func=&sub;
+
+    printf("result: %d\n", func(n1, n2));
+
+    return 0;
+
+}
+#include<stdio.h>
+#include<stdlib.h>
+int add( int a, int b){
+    return a+b;
+}
+int sub(int a, int b){
+    return a-b;
+}
+int operate(int (*op)(int , int), int a, int b){
+    return op(a,b);
+}
+
+int main()
+{
+    int n1=10, n2=20;
+
+    printf("result: %d\n", operate(&add, n1, n2));
+
+    printf("result: %d\n", operate(&sub, n1, n2));
+
+    return 0;
+
+}
+#include<stdio.h>
+#include<stdlib.h>
+int add( int a, int b){
+    return a+b;
+}
+int sub(int a, int b){
+    return a-b;
+}
+int operate(int (*op)(int , int), int a, int b){
+    return op(a,b);
+}
+
+int main()
+{
+    int n1=10, n2=20;
+
+    //printf("result: %d\n", operate(&add, n1, n2));
+    printf("result: %d\n", operate(add, n1, n2));
+
+    printf("result: %d\n", operate(sub, n1, n2));
+    //printf("result: %d\n", operate(&sub, n1, n2));
+    return 0;
+
+}
+

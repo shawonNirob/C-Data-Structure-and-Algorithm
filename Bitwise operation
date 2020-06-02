@@ -1,0 +1,165 @@
+#include<stdio.h>
+
+int main()
+{
+    int n, x ,m;
+    while(1){
+    printf("enter the number(0 to exit): ");
+    scanf("%d", &n);
+    if(n==0){
+        break;
+    }
+    printf("How many bits you want to shift left?: ");
+    scanf("%d", &x);
+
+    m=n>>x;
+
+    printf("result is %d\n\n", m);
+    }
+
+    return 0;
+}
+#include<stdio.h>
+
+int main()
+{
+    int n1=5,n2=6,n3;
+    n3= n1 ^ n2;
+    printf("result is %d\n\n", n3);
+
+    return 0;
+}
+#include<stdio.h>
+
+int main()
+{
+    int n;
+    while(1){
+    scanf("%d", &n);
+     if(n & 1){
+        printf("odd\n\n");
+     }
+     else{
+        printf("Even\n\n");
+     }
+    }
+    return 0;
+}
+#include<stdio.h>
+upercase(char sp);
+lowercase(char sp);
+int main()
+{
+    char *str="AbCdefghijklmnoPQRSTUVWXyz";
+    for(int i=0; i<26; i++){
+        printf("Upercase: %c\t", upercase(str[i]));
+        printf("lowercase: %c\n", lowercase(str[i]));
+    }
+    return 0;
+}
+upercase(char sp)
+{
+    return sp & 95;
+}
+lowercase(char sp)
+{
+    return sp | 32;
+}
+#include<stdio.h>
+int main()
+{
+    //find square of two
+    int n=1000;
+    for(int i=1; i<n; i++){
+        if((i & (i-1))==0){
+            printf("power of two: %d\n", i);
+            printf("\n\n");
+            }
+        else{
+            printf("Not power of two: %d\n", i);
+          }
+        }
+
+
+    return 0;
+}
+#include<stdio.h>
+int main()
+{
+    //find square of two
+    int n;
+    while(1){scanf("%d", &n);
+    if(n>0 && (n & (n-1))==0){
+            printf("power of two: %d\n", n);
+            printf("\n\n");
+            }
+        else{
+            printf("Not power of two: %d\n", n);
+          }
+}
+
+    return 0;
+}
+
+#include<stdio.h>
+int main()
+{
+    //find square of two
+    int n;
+    while(1){scanf("%d", &n);
+    if(n && !(n & (n-1))==0){
+            printf("not power of two: %d\n", n);
+            printf("\n\n");
+            }
+        else{printf("power of two: %d\n", n);
+          }
+}
+
+    return 0;
+}
+
+#include<stdio.h>
+void main()
+{
+    char strcpy[30];
+    int n, x=1, stack=0; char y[32];
+    scanf("%d", &n);
+    for(int i=n; i>0; i=i/2){
+        stack=stack+(n%2)*x;
+        x=x*10;
+        n=n/2;
+
+    }
+
+#include<stdio.h>
+#include<limits.h>
+void main()
+{
+    int n=sizeof(int)* CHAR_BIT;
+    int count=0, num;
+    printf("number: ");
+    scanf("%d", &num);
+    for(int  i=0; i<n; i++){
+        if(num & (1 << i)){
+            count++;
+        }
+    }
+    printf("number of 1 is : %d\n", count);
+}
+#include <stdio.h>
+#include <stdlib.h>
+
+void main()
+{
+    int  n;
+    int stack[]={1,3,4,5,4,1,3};
+    n=7;
+    int result=stack[0];
+    for(int i=1; i<n; i++){
+        result=result ^ stack[i];
+    }
+    printf("the single number is ; %d\n", result);
+
+}
+
+

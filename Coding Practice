@@ -1,0 +1,21 @@
+#include <stdio.h>
+#include <stdlib.h>
+
+void main()
+{
+    double PA, CIFuture, CI, ROI, TP;
+    printf("enter principal amount: ");
+    scanf("%f", &PA);
+    printf("enter rate of interest: ");
+    scanf("%f", &ROI);
+    printf("enter time period: ");
+    scanf("%f", &TP);
+
+    CIFuture = PA + pow((1+ROI/100), TP);
+    CI=CIFuture-PA;
+
+    printf("Future compound interest: %0.4f\n",CIFuture);
+    printf("Compound interest: %0.5f", CI);
+}
+
+

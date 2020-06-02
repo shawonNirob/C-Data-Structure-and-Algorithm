@@ -1,0 +1,190 @@
+#include<stdio.h>
+#include<math.h>
+
+#define MIN -1
+#define PI (2 * acos(0))
+
+int main(){
+    printf("value of MIN: %d\n", MIN);
+    printf("value of PI: %lf\n", PI);
+
+    return 0;
+}
+#include<stdio.h>
+#include<math.h>
+
+int main(){
+    double x=0.0;
+
+    printf("result=%0.4lf radian\n", acos(x));
+    printf("result=%0.8lf degree\n", acos(x)*180/3.14159);
+
+
+    return 0;
+}
+#include<stdio.h>
+#include<math.h>
+
+#define p 40
+#define q 60
+
+int main(){
+
+    int a=p;
+    int b=q;
+    printf("value of a= %d\n", a);
+    printf("value of b= %d\n", b);
+
+    return 0;
+}
+#include<stdio.h>
+#include<math.h>
+
+#define p 40
+#define q 60;
+
+int main(){
+
+    int a=p;
+    int b=q
+    printf("value of a= %d\n", a);
+    printf("value of b= %d\n", b);
+
+    return 0;
+}
+#include<stdio.h>
+#include<math.h>
+
+#define MAX(a,b)(a>b?a:b)
+
+int main(){
+
+    int a=44, b=56;
+    double d1=35.78, d2=25.65;
+    printf("maximum of %d and %d is %d\n", a, b, MAX(a,b));
+    printf("maximum of %lf and %lf is %lf\n", d1, d2, MAX(d1,d2));
+
+    return 0;
+}
+#include<stdio.h>
+#include<math.h>
+
+enum COLOR {RED, GREEN, BLUE};
+
+int main(){
+    enum COLOR selectedColour;
+
+    int num;
+
+    printf("1 for red, 2 for green , 3 for blue: ");
+    scanf("%d", &num);
+
+    if(num==1){
+        selectedColour=RED;
+    }
+    else if(num==2){
+        selectedColour=GREEN;
+    }
+    else if(num==3){
+        selectedColour=BLUE;
+    }
+
+    printf("selectedcolour: %d\n", selectedColour);
+
+    return 0;
+}
+#include<stdio.h>
+#include<math.h>
+
+enum COLOR {NO_COLOR=00, RED=50, GREEN=20, BLUE=44};
+
+int main(){
+    printf("value: %d\n", NO_COLOR);
+    printf("value: %d\n", RED);
+    printf("value: %d\n", GREEN);
+    printf("value: %d\n", BLUE);
+    return 0;
+}
+
+#include<stdio.h>
+#include<math.h>
+
+enum DAY {SUNDAY, MONDAY, TUESDAY, WEDNESDAY, THURSDAY, FRIDAY,SATURDAY};
+
+int main(){
+    enum DAY today;
+    today=FRIDAY;
+    switch(today){
+        case SUNDAY:
+        printf("today is SUNDAY\n");
+        break;
+        case MONDAY:
+        printf("today is MONDAY\n");
+        break;
+        case TUESDAY:
+        printf("today is TUESDAY\n");
+        break;
+        case WEDNESDAY:
+        printf("today is WEDNESDAY\n");
+        break;
+        case THURSDAY:
+        printf("today is THURSDAY\n");
+        break;
+        case FRIDAY:
+        printf("today is FRIDAY\n");
+        break;
+        case SATURDAY:
+        printf("today is SATURDAY\n");
+        break;
+    }
+    return 0;
+}
+#include<stdio.h>
+#include<math.h>
+
+enum DAY {SUNDAY, MONDAY, TUESDAY, WEDNESDAY, THURSDAY, FRIDAY,SATURDAY};
+
+int main(){
+    enum DAY today;
+    today=MONDAY;
+    switch(today){
+        case SUNDAY:
+        printf("today is SUNDAY\n");
+
+        case MONDAY:
+        printf("today is MONDAY\n");
+
+        case TUESDAY:
+        printf("today is TUESDAY\n");
+
+        case WEDNESDAY:
+        printf("today is WEDNESDAY\n");
+
+        case THURSDAY:
+        printf("today is THURSDAY\n");
+
+        case FRIDAY:
+        printf("today is FRIDAY\n");
+
+        case SATURDAY:
+        printf("today is SATURDAY\n");
+
+    }
+    return 0;
+}
+#include<stdio.h>
+#include<stdlib.h>
+
+int main(int argc, char *argv[]){
+    int n1, n2, sum;
+
+    n1=atoi(argv[1]);
+    n2=atoi(argv[2]);
+
+    sum=n1+n2;
+
+    printf("%d + %d= %d\n", n1,n2,sum);
+
+    return 0;
+}
+

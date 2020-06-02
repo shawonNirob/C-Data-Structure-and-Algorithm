@@ -1,0 +1,223 @@
+#include <stdio.h>
+#include <stdlib.h>
+
+int main()
+{
+    int *marks;
+    int i, n;
+    printf("please enter the number of a students: ");
+    scanf("%d", &n);
+
+    //now allocate memory
+    marks=(int *)malloc(sizeof(int) * n);
+
+    printf("enter the marks for each student: \n");
+    for(int i=0; i<n; i++){
+        scanf("%d\n", &marks[i]);
+    }
+    printf("Now you can see the values: \n");
+    //Now print the marks arrray
+    for(int i=0; i<n; i++){
+        printf("%d\n", marks[i]);
+    }
+
+    return 0;
+}
+#include <stdio.h>
+#include <stdlib.h>
+
+int main()
+{
+    int *marks;
+    int i, n;
+    printf("please enter the number of a students: ");
+    scanf("%d", &n);
+
+    //now allocate memory
+    marks=(int *)malloc(sizeof(int) * n);
+    if(marks==NULL){
+        printf("Memory allocation failed for marks\n");
+        return 1;
+    }
+
+    printf("enter the marks for each student: \n");
+    for(int i=0; i<n; i++){
+        scanf("%d\n", &marks[i]);
+    }
+    printf("Now you can see the values: \n");
+    //Now print the marks arrray
+    for(int i=0; i<n; i++){
+        printf("%d\n", marks[i]);
+    }
+
+    //Now free the memory/delete the array
+    free(marks);
+
+    return 0;
+}
+#include <stdio.h>
+#include <stdlib.h>
+
+int main()
+{
+    int *marks;
+    int i, n;
+    printf("please enter the number of a students: ");
+    scanf("%d", &n);
+
+    //now allocate memory
+    //marks=(float*)calloc(sizeof(float), n);
+    marks=(int *)calloc(sizeof(int), n);
+    if(marks==NULL){
+        printf("Memory allocation failed for marks\n");
+        return 1;
+    }
+
+    printf("enter the marks for each student: \n");
+    for(int i=0; i<n; i++){
+        scanf("%d\n", &marks[i]);
+    }
+    printf("Now you can see the values: \n");
+    //Now print the marks arrray
+    for(int i=0; i<n; i++){
+        printf("%d\n", marks[i]);
+    }
+
+    //Now free the memory/delete the array
+    free(marks);
+
+    return 0;
+}
+#include <stdio.h>
+#include <stdlib.h>
+
+int main()
+{
+    //If the dynamically allocated memory is insufficient
+    //or more than required
+    //you can change the size of previously allocated
+    //memory using the #realloc() function
+    //marks=realloc(marks, n2 * sizeof(int))
+
+    int *marks, n;
+    printf("enter the student number: ");
+    scanf("%d", &n);
+
+    marks=(int *)malloc(sizeof(int) * n);
+    if(marks==NULL){
+        printf("memory allocated failed\n");
+        exit(0);
+    }
+
+    printf("Enter the marks: ");
+    for(int i=0; i<n; i++){
+        scanf("%d", &marks[i]);
+    }
+    printf("\n\n");
+    printf("Now you see the values\n");
+    for(int i=0; i<n; i++){
+        printf("%d\n", marks[i]);
+    }
+    printf("\n\n");
+    int n2;
+    printf("reallocating memory\n");
+    printf("enter the student number: ");
+    scanf("%d", &n2);
+
+    marks=realloc(marks, n2 * sizeof(int));
+    printf("Enter the marks: ");
+    for(int i=0; i<n2; i++){
+        scanf("%d", &marks[i]);
+    }
+    printf("\n\n");
+    printf("Now you see the values\n");
+    for(int i=0; i<n2; i++){
+        printf("%d\n", marks[i]);
+    }
+
+    free(marks);
+
+    return 0;
+}
+#include<stdio.h>
+#include<stdlib.h>
+
+int main()
+{
+    int *subProject[5], studentNumber[5];
+    int i,j,n;
+    for(int i=0; i<5; i++){
+        printf("enter the student number of %d class: ", i+1);
+        scanf("%d", &n);
+        studentNumber[i]=n;
+        subProject[i]=(int * )malloc(sizeof(int) * n);
+        if(subProject[i]==NULL){
+            printf("memory allocation failed");
+            exit(0);
+        }
+        for(j=0; j<n; j++){
+            printf("enter the marks of roll %d class %d: ", j+1, i+1);
+            scanf("%d", &subProject[i][j]);
+        }
+    }
+
+    //Now show the result
+
+    printf("output\n\n");
+
+    for(i=0; i<5; i++){
+        printf("class %d: ", i+1);
+        for(j=0; j<studentNumber[i]; j++){
+            printf("%d\t", subProject[i][j]);
+        }
+         printf("\n");
+    }
+    for(i=0; i<5; i++){
+        free(subProject[i]);
+    }
+    printf("\n\n");
+}
+
+#include<stdio.h>
+#include<stdlib.h>
+int main()
+{
+    int **ara ;
+    int i, j, totClass;
+    printf("enter the total class number: ");
+    scanf("%d", &totClass);
+    ara=(int **)malloc(sizeof(int) * totClass);
+    if(ara==NULL){
+        printf("memory allocation failed");
+        exit(0);
+    }
+    int n,stuNum[totClass];
+    for(i=0; i<totClass; i++){
+        printf("enter the student number of class %d: ", i+1);
+        scanf("%d", &n);
+        stuNum[i]=n;
+        ara[i]=(int *)malloc(sizeof(int)*n);
+        if(ara[i]==NULL){
+            printf("memory allocation failed");
+            exit(0);
+        }
+        for(j=0; j<n; j++){
+            printf("enter the marks of roll %d: ", j+1);
+            scanf("%d", &ara[i][j]);
+        }
+        printf("\n");
+    }
+    printf("Now sho the result: \n");
+    for(int i=0; i<totClass; i++){
+        printf("class: %d", i+1);
+        for(j=0; j<stuNum[i]; j++){
+            printf("%4d", ara[i][j]);
+        }
+        printf("\n");
+    }
+    for(int i=0; i<totClass; i++){
+        free(ara[i]);
+    }
+
+}
+
