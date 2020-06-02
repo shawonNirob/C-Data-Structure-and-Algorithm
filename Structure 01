@@ -1,0 +1,221 @@
+#include<stdio.h>
+#include<stdlib.h>
+
+int main()
+{
+    struct student{
+        int id;
+        char* name;
+    };
+
+    struct student one;
+    one.id=1;
+    one.name="Tahmid Rafi";
+    //strcpy(one.name, "Tahmid rafi");
+
+    printf("Id: %d\n", one.id);
+    printf("Name: %s\n", one.name);
+
+    printf("\n\n");
+
+    struct student two;
+        two.id=2;
+        two.name="shawon";
+
+    printf("Id:%d\n", two.id);
+    printf("Name:%s\n", two.name);
+
+
+    return 0;
+}
+
+#include<stdio.h>
+#include<stdlib.h>
+
+int main()
+{
+    struct nametype{
+        char* first;
+        char* second;
+        char* third;
+    };
+
+    struct student{
+        int id;
+        struct nametype name;
+    };
+
+    struct student one;
+    one.id=1;
+    one.name.first="Tahmid";
+    one.name.second="Rafi";
+    //strcpy(one.name, "Tahmid rafi");
+
+    printf("Id: %d\n", one.id);
+    printf("Name: %s ",one.name.first);
+    printf("%s", one.name.second);
+
+    printf("\n\n");
+
+    struct student two;
+        two.id=2;
+        two.name.first="shawon";
+        two.name.second="Sarowar";
+        two.name.third="Nirob";
+
+    printf("Id:%d\n", two.id);
+    printf("Name:%s ", two.name.first);
+    printf("%s ",two.name.second);
+    printf("%s\n", two.name.third);
+
+    return 0;
+
+}
+
+#include<stdio.h>
+#include<stdlib.h>
+
+int main()
+{
+    struct nametype{
+        char first[20];
+        char second[20];
+        char third[20];
+    };
+
+    struct student{
+        int id;
+        struct nametype name;
+    };
+
+    struct student one;
+    scanf("%d", &one.id);
+    scanf("%s", &one.name.first);
+    scanf("%s", &one.name.second);
+
+    printf("Id: %d\n", one.id);
+    printf("Name: %s %s",one.name.first, one.name.second);
+
+
+    printf("\n\n");
+
+    struct student two;
+    scanf("%d", &two.id);
+    scanf("%s", &two.name.first);
+    scanf("%s", &two.name.second);
+    scanf("%s", &two.name.third);
+
+    printf("Id:%d\n", two.id);
+    printf("Name:%s %s %s", two.name.first,two.name.second, two.name.third);
+
+    return 0;
+
+}
+#include<stdio.h>
+#include<stdlib.h>
+#include<string.h>
+
+    struct nametype{
+        char first[20];
+        char last[20];
+    };
+    struct studenttype{
+        int id;
+        struct nametype name;
+    };
+
+int main()
+{
+    struct studenttype student[5];
+    int i, n=5;
+
+    for(int i=0; i<n; i++){
+        printf("enter the ID of student no %d: ", i+1);
+        scanf("%d", &student[i].id);
+        printf("enter the first name of student no %d: ", i+1);
+        scanf("%s", &student[i].name.first);
+        printf("enter the last name of student no %d: ", i+1);
+        scanf("%s", &student[i].name.last);
+
+        }
+
+        printf("output: \n\n");
+
+        for(int i=0; i<n; i++){
+            printf("ID: %d\n",student[i].id);
+            printf("Name: %s %s\n",student[i].name.first, student[i].name.last);
+        }
+
+
+
+    return 0;
+}
+#include<stdio.h>
+#include<string.h>
+typedef struct{
+    char first[20];
+    char last[20];
+} nametype;
+
+    typedef struct{
+        int id;
+        nametype name;
+        char grade[5];
+    }studenttype;
+
+void countGrade(studenttype* p,int marks);
+
+
+int main()
+{
+    int n=3;
+    studenttype student[n];
+    int mark[]={45,78,90};
+
+    for(int i=0; i<n; i++){
+        printf("enter the Id number of student no %d: ", i+1);
+        scanf("%d", &student[i].id);
+        printf("enter the first name of student no %d: ", i+1);
+        scanf("%s", &student[i].name.first);
+        printf("enter the last name of student no %d: ", i+1);
+        scanf("%s", &student[i].name.last);
+        strcpy(student[i].grade, "");
+        printf("\n\n");
+    }
+    for(int i=0; i<n; i++){
+        countGrade(&student[i], mark[i]);
+    }
+
+    printf("Output: \n\n");
+
+    for(int i=0; i<n; i++){
+        printf("ID: %d\n", student[i].id);
+        printf("Name: %s %s\n", student[i].name.first, student[i].name.last);
+        printf("Grade: %s\n\n", student[i].grade );
+    }
+
+    return 0;
+
+}
+void countGrade(studenttype* p,int marks)
+{
+    if(marks>=80){
+        strcpy(p->grade, "A+");
+    }
+    else if(marks>=70){
+        strcpy(p->grade, "A");
+    }
+     else if(marks>=60){
+        strcpy(p->grade, "A-");
+    }
+     else if(marks>=50){
+        strcpy(p->grade, "B");
+    }
+     else if(marks>=40){
+        strcpy(p->grade, "C");
+    }
+     else{
+        strcpy(p->grade, "F");
+    }
+}
+

@@ -1,0 +1,153 @@
+#include<stdio.h>
+int main()
+{
+    int n1,n2;
+    printf("Enter two number:");
+    scanf("%d %d", &n1, &n2);
+
+    int *p1, *p2;
+
+    p1=&n1;
+    p2=&n2;
+
+    int sum=*p1+*p2;
+
+    printf("adress of n1=%p\n", p1);
+    printf("adress of n2=%p\n", p2);
+
+    printf("sum=%d", sum);
+
+    return 0;
+
+
+
+}
+
+
+//Pass Pointers to Functions
+
+#include<stdio.h>
+int main()
+{
+    int n1,n2;
+    printf("Enter two number:");
+    scanf("%d %d", &n1, &n2);
+
+    int *x, *y;
+
+    x=&n1;
+    y=&n2;
+
+    printf("Before swapping:n1=%d and n2=%d\n", n1, n2);
+    swap(x, y);
+    printf("After swapping:n1=%d and n2=%d\n", n1, n2);
+
+    return 0;
+}
+
+int swap(int *x, int *y)
+{
+    int temp=*x;
+        *x=*y;
+        *y=temp;
+        return(*x,*y);
+
+}
+
+#include <stdio.h>
+#include <stdlib.h>
+
+int main()
+{   
+    int mat[]={34,56,78,65,45,36,75};
+    int *x;
+    int matLength=strlen(mat);
+    x=&mat[];
+    
+    for(int i=0; i<matLength; i++){
+        printf("")
+    }
+    
+    return 0;
+}
+
+#include<stdio.h>
+#include<stdlib.h>
+int const length=7;
+//#define length 7
+
+#include<stdio.h>
+#include<stdlib.h>
+int const length=7;
+//#define length 7
+
+int main()
+{
+    int mat[7]={34,56,78,65,45,36,75};
+    int *x[length];
+
+    for(int i=0; i<length; i++){
+        x[i]= &mat[i];
+    }
+    int sum=0;
+    for(int i=0; i<length; i++){
+        printf("value of mat[%d]=%d\n",i+1, *x[i]);
+        sum=sum+*x[i];
+    }
+
+    printf("\n");
+    printf("the sum of mat=%d", sum);
+    printf("\n");
+    return 0;
+}
+
+#include <stdio.h>
+#include <stdlib.h>
+
+int main()
+{
+    int x=10;
+    int y;
+    int *p;
+
+    printf("value of x=%d\n",x);
+
+    p=&x;
+    y=*p;
+    *p=15;
+    x=20;
+
+    printf("value of x=%d\n",x);
+    printf("value of y=%d\n",y);
+    printf("value of *p=%d\n", *p);
+    printf("value of p=%p\n", p);
+    printf("Adress of x=%p\n", &x);
+    printf("Adress of y=%p\n", &y);
+
+    return 0;
+    }
+
+#include<stdio.h>
+#include<stdlib.h>
+
+countTen1(int a){
+    a=a+10;
+}
+countTen2(int *a){
+    *a+=10;
+}
+
+int main()
+{
+    int x=10;
+
+    countTen1(x);
+    printf("%d\n", x);
+
+    countTen2(&x);
+    printf("%d\n", x);
+
+
+    return 0;
+    }
+

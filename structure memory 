@@ -1,0 +1,79 @@
+#include <stdio.h>
+#include <stdlib.h>
+
+struct car{
+    char ch;
+    double d;
+    int price;
+};
+struct bot{
+    char ch;
+    int price;
+    double d;
+};
+
+int main(){
+
+    printf("char size= %lu bytes\n", sizeof(char));
+    printf("int size=%lu bytes\n", sizeof(int));
+    printf("double size=%lu bytes\n", sizeof(double));
+
+    printf("car size= %lu\n",sizeof(struct car));
+    printf("bot size=%lu\n", sizeof(struct bot));
+
+    return 0;
+}
+#include <stdio.h>
+#include <stdlib.h>
+
+struct car{
+    char ch;
+    double d;
+    int price;
+};
+struct bot{
+    char ch;
+    int price;
+    char ch2;
+    double d;
+    char ch3;
+    char ch4;
+};
+
+int main(){
+
+    printf("char size= %lu bytes\n", sizeof(char));
+    printf("int size=%lu bytes\n", sizeof(int));
+    printf("double size=%lu bytes\n", sizeof(double));
+
+    printf("car size= %lu\n",sizeof(struct car));
+    printf("bot size=%lu\n", sizeof(struct bot));
+
+    return 0;
+}
+#include <stdio.h>
+#include <stdlib.h>
+
+struct car{
+    char ch;
+    double d;
+    int price;
+};
+struct bot{
+    char ch,ch2,ch3,ch4;
+    int price;
+    double d;
+};
+
+int main(){
+
+    printf("char size= %lu bytes\n", sizeof(char));
+    printf("int size=%lu bytes\n", sizeof(int));
+    printf("double size=%lu bytes\n", sizeof(double));
+
+    printf("car size= %lu\n",sizeof(struct car));
+    printf("bot size=%lu\n", sizeof(struct bot));
+
+    return 0;
+}
+//for useing less memory structure member variable declare size according to low to high

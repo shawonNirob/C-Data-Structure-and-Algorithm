@@ -1,0 +1,86 @@
+#include<stdio.h>
+#include<stdlib.h>
+
+comparefunc(const void* n1, const void* n2){
+    return (*(int*)n1 - *(int*)n2);
+
+}
+
+int main(){
+    int i, n=6;
+    int values[]={23,45,45,51,25,36};
+
+    qsort(values, 6, sizeof(int), comparefunc);
+
+    for(int i=0; i<n; i++){
+        printf("%d\n", values[i]);
+    }
+
+    printf("\n\n");
+
+    return 0;
+}
+#include<stdio.h>
+#include<stdlib.h>
+
+comparefunc(const void* n1, const void* n2){
+    return (*(int*)n1 - *(int*)n2);
+
+}
+
+int main(){
+    int key, *item, n=5;
+    int values[]={1,2,5,8,10};
+
+    while(1){
+        printf("enter the value of the key(0 to exit): ");
+        scanf("%d", &key);
+        if(key==0){
+            break;
+        }
+    item=(int *)bsearch(&key, values, n, sizeof(int), comparefunc);
+
+    if(item!=NULL){
+        printf("item found: %d\n", *item);
+    }
+    else{
+        printf("not found\n");
+    }
+}
+    return 0;
+}
+#include<stdio.h>
+#include<stdlib.h>
+
+comparefunc(const void* n1, const void* n2){
+    return (*(int*)n1 - *(int*)n2);
+
+}
+
+int main(){
+    int key, *item, n=5;
+    int values[]={4,2,5,15,10};
+    qsort(values, n, sizeof(int), comparefunc);
+
+    for(int i=0; i<n; i++){
+        printf("%d\n", values[i]);
+    }
+
+    while(1){
+        printf("enter the value of the key(0 to exit): ");
+        scanf("%d", &key);
+        if(key==0){
+            break;
+        }
+    item=(int *)bsearch(&key, values, n, sizeof(int), comparefunc);
+
+    if(item!=NULL){
+        printf("item found: %d\n", *item);
+    }
+    else{
+        printf("not found\n");
+    }
+}
+    return 0;
+}
+

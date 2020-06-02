@@ -1,0 +1,6 @@
+def my_program(x):
+    count = 0
+    while True:
+        if count == x:
+            break
+        count = count + 1

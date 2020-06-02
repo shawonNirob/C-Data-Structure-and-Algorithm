@@ -1,0 +1,73 @@
+#include<stdio.h>
+int main()
+{
+    int type[100];
+    int n,indexMin, temp;
+    printf("enter the number of n: ");
+    scanf("%d", &n);
+
+    printf("enter %d integers number : ", n);
+    for(int c=0; c<n; c++){
+        scanf("%d", &type[c]);
+    }
+
+    for(int i=0; i<n; i++){
+        printf("%d\t", type[i]);
+        }
+    printf("\n\n");
+
+    for(int i=0; i<n-1; i++){
+        indexMin=i;
+
+        for(int j=i+1; j<n; j++){
+            if(type[j]<type[indexMin]){
+                indexMin=j;
+            }
+        }
+        if(indexMin !=i){
+            temp=type[i];
+            type[i]=type[indexMin];
+            type[indexMin]=temp;
+        }
+    }
+    for(int i=0; i<n; i++){
+        printf("%d\t", type[i]);
+        }
+
+    return 0;
+}
+#include<stdio.h>
+int main()
+{
+    int stack[40], n, temp;
+    printf("enter the number of n: \n");
+    scanf("%d", &n);
+
+    printf("enter the array:");
+    for(int i=0; i<n; i++){
+        scanf("%d", &stack[i]);
+    }
+      for(int i=0; i<n; i++){
+        printf("%d\t", stack[i]);
+    }
+    
+    printf("\n\n");
+
+    for(int i=0; i<n; i++){
+        for(int j=0; j<n-i-1; j++){
+            if(stack[j]>stack[j+1]){
+                temp=stack[j];
+                stack[j]=stack[j+1];
+                stack[j+1]=temp;
+            }
+        }
+    
+    }
+
+   for(int i=0; i<n; i++){
+        printf("%d\t", stack[i]);
+    }
+
+    return 0;
+}
+

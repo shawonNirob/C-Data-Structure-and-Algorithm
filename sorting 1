@@ -1,0 +1,168 @@
+#include <stdio.h>
+int main()
+{
+    int type[100];
+    int n,temp;
+    printf("enter the number of n: ");
+    scanf("%d", &n);
+    printf("enter the integers %d number: ", n);
+    for(int c=0; c<n; c++){
+        scanf("%d", &type[c]);
+    }
+
+    for(int c=0; c<n; c++){
+    printf("%d\t", type[c]);
+    }
+
+    printf("\n\n\n\n");
+
+    for(int i=0; i<n; i++){
+        for(int j=0; j<n-i-1; j++){
+            if(type[j]>type[j+1]){
+                temp=type[j];
+                type[j]=type[j+1];
+                type[j+1]=temp;
+            }
+            for(int j=0; j<n; j++){
+            printf("%d\t", type[j]);
+            }
+            printf("\n\n");
+        }
+        printf("\n\n\n\n");
+    }
+
+    printf("\n\n\n\n");
+
+    for(int i=0; i<n; i++){
+        printf("%d\t", type[i]);
+    }
+
+    return 0;
+}
+
+
+
+
+#include<stdio.h>
+int main()
+{
+    int file[100];
+    int j,n,item;
+    printf("enter the value of n: ");
+    scanf("%d", &n);
+    printf("enter the %d value of file: ", n);
+    for(int i=0; i<n; i++){
+            scanf("%d", &file[i]);
+    }
+
+    for(int i=0; i<n; i++){
+        printf("%d\t", file[i]);
+    }
+
+    printf("\n\n");
+
+    for(int i=1; i<n; i++){
+        item=file[i];
+
+        int j=i-1;
+        while(j>=0 && file[j]>item){
+            file[j+1]=file[j];
+            j=j-1;
+        }
+        file[j+1]=item;
+    }
+    for(int i=0; i<n; i++){
+        printf("%d\t", file[i]);
+    }
+
+
+    return 0;
+
+}
+
+#include<stdio.h>
+int main()
+{
+    int file[100];
+    int j,n,item;
+    printf("enter the value of n: ");
+    scanf("%d", &n);
+    printf("enter the %d value of file: ", n);
+    for(int i=0; i<n; i++){
+            scanf("%d", &file[i]);
+    }
+
+    for(int i=0; i<n; i++){
+        printf("%d\t", file[i]);
+    }
+
+    printf("\n\n");
+
+    for(int i=1; i<n; i++){
+        item=file[i];
+
+        int j=i-1;
+        while(j>=0 && file[j]>item){
+            file[j+1]=file[j];
+            j=j-1;
+        }
+        file[j+1]=item;
+        for(int i=0; i<n; i++){
+            printf("%d\t", file[i]);
+        }
+
+        printf("\n\n\n");
+    }
+    printf("\n\n\n");
+    for(int i=0; i<n; i++){
+        printf("%d\t", file[i]);
+    }
+
+
+    return 0;
+
+}
+
+
+int main()
+{
+    int file[100];
+    int j,n,item;
+    printf("enter the value of n: ");
+    scanf("%d", &n);
+    printf("enter the %d value of file: ", n);
+    for(int i=0; i<n; i++){
+            scanf("%d", &file[i]);
+    }
+
+    for(int i=0; i<n; i++){
+        printf("%d\t", file[i]);
+    }
+
+    printf("\n\n");
+
+    for(int i=1; i<n; i++){
+        item=file[i];
+
+        int j=i-1;
+        while(j>=0 && file[j]>item){
+            file[j+1]=file[j];
+            j=j-1;
+        }
+        file[j+1]=item;
+        for(int i=0; i<n; i++){
+            printf("%d\t", file[i]);
+        }
+
+        printf("\n\n\n");
+    }
+    printf("\n\n\n");
+    for(int i=0; i<n; i++){
+        printf("%d\t", file[i]);
+    }
+
+
+    return 0;
+
+}
+

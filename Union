@@ -1,0 +1,160 @@
+#include <stdio.h>
+#include <stdlib.h>
+
+union car{
+    int price;
+    char name[30];
+};
+int main(){
+    union car car1, car2, *car3;
+
+    return 0;
+}
+#include <stdio.h>
+#include <stdlib.h>
+
+union car{
+    int price;
+    char name[30];
+}car1, car2, car3;;
+
+#include <stdio.h>
+#include <stdlib.h>
+
+struct bike{
+    char ch;
+    int price;
+    char name[30];
+};
+
+union car{
+    char ch;
+    int price;
+    char name[30];
+};
+
+int main(){
+    struct bike dynamic;
+    int structSize=sizeof(dynamic);
+
+    union car statics;
+    int unionSize=sizeof(statics);
+
+    printf("Structure variable took %d bytes\n", structSize);
+    printf("union variable took %d bytes\n", unionSize);
+
+    return 0;
+}
+
+#include <stdio.h>
+#include <stdlib.h>
+
+struct bike{
+    char ch;
+    int price;
+    char name[16];
+} dynamic;
+
+union car{
+    char ch;
+    int price;
+    char name[16];
+} statics;
+
+int main(){
+    //struct bike dynamic;
+    int structSize=sizeof(dynamic);
+
+    //union car statics;
+    int unionSize=sizeof(statics);
+
+    printf("Structure variable took %d bytes\n", structSize);
+    printf("union variable took %d bytes\n", unionSize);
+
+    //It's because the size of a union variable will always be the size of its largest element
+
+    return 0;
+}
+
+#include <stdio.h>
+#include <stdlib.h>
+
+struct car{
+    char ch;
+    int price;
+    char *name;
+} statics;
+
+int main(){
+
+    statics.ch='B';
+    statics.price=300000000;
+    statics.name="BMW";
+
+    printf("charecter: %c\n", statics.ch);
+    printf("Price: %d\n", statics.price);
+    printf("Name: %s\n", statics.name);
+
+    return 0;
+}
+#include <stdio.h>
+#include <stdlib.h>
+
+union car{
+    char ch;
+    int price;
+    char *name;
+} statics;
+
+int main(){
+
+    statics.ch='B';
+    statics.price=300000000;
+    statics.name="BMW";
+
+    printf("charecter: %c\n", statics.ch);
+    printf("Price: %d\n", statics.price);
+    printf("Name: %s\n", statics.name);
+    
+    //You can access all members of a struct at once.
+    //However , it's not the case with unions. 
+    //You can only access a single member of a 
+    //union at one time since all union members share the same memory
+
+
+    return 0;
+}
+#include <stdio.h>
+#include <stdlib.h>
+
+union car{
+    char ch;
+    int price;
+    char *name;
+} statics;
+
+int main(){
+
+    statics.ch='B';
+    printf("charecter: %c\n", statics.ch);
+
+    statics.price=300000000;
+    printf("Price: %d\n", statics.price);
+    printf("charecter: %c\n", statics.ch);
+
+    statics.name="BMW";
+    printf("charecter: %c\n", statics.ch);
+    printf("Price: %d\n", statics.price);
+    printf("Name: %s\n", statics.name);
+
+    //You can access all members of a struct at once.
+    //However , it's not the case with unions.
+    //You can only access a single member of a
+    //union at one time since all union members share the same memory
+
+
+    return 0;
+}
+union use for #embedded programming
+
+

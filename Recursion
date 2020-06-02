@@ -1,0 +1,376 @@
+#include<stdio.h>
+#include<stdlib.h>
+void leetcode(int y);
+
+int x=1;
+
+int main()
+{
+        int y=5;
+        int x=10;
+        leetcode(y);
+
+
+        printf("main function, x=%d, y=%d", x, y);
+
+        printf("\n\n");
+
+        return 0;
+}
+void leetcode(int y)
+{
+    y=y*2;
+    x=x+10;
+    printf("leetcode, x=%d, y=%d", x,y);
+
+    printf("\n\n");
+}
+#include<stdio.h>
+#include<stdlib.h>
+void leetcode();
+
+int a=1;
+static int b=1;
+
+int main()
+{
+        leetcode();
+        printf("a=%d\n", a);
+        printf("b=%d\n", b);
+
+        return 0;
+}
+void leetcode()
+{
+    a=a+1;
+    b=b+1;
+    printf("%d, %d\n", a, b);
+}
+#include<stdio.h>
+#include<stdlib.h>
+void leetcode();
+
+int main()
+{
+        leetcode();
+        leetcode();
+        leetcode();
+
+        return 0;
+}
+void leetcode()
+{
+    int a=10;
+    static int s=10;
+    a=a+2;
+    s=s+2;
+    printf("a=%d, s=%d\n", a, s);
+}
+#include<stdio.h>
+void recurse();
+int main()
+{
+    recurse();
+    return 0;
+}
+void recurse()
+{
+    char *s="hurry, i am learning recursing!";
+    printf("%s\n", s);
+
+    recurse();
+}
+#include<stdio.h>
+
+void recurse(int count)
+{
+    if(count==5){
+        return;
+    }
+    printf("i am a new recursion learner\n");
+    recurse(count+1);
+    return;
+}
+
+
+int main()
+{
+    recurse(1);
+    return 0;
+}
+#include<stdio.h>
+
+int recurse(int count){
+    if(count>5){
+        return;
+    }
+    printf("count=%d\n", count);
+    recurse(count+1);
+    return;
+}
+int main()
+{
+    recurse(1);
+    return 0;
+}
+#include<stdio.h>
+
+int recurse(int count){
+    if(count>5){
+        return;
+    }
+    recurse(count+1);
+    printf("count=%d\n", count);
+    return;
+}
+int main()
+{
+    recurse(1);
+    return 0;
+}
+#include<stdio.h>
+void recurse(int count){
+    if(count>5){
+        printf("\n\n");
+        return;
+    }
+    printf("count=%d\n", count);
+    recurse(count+1);
+    printf("count=%d\n", count);
+}
+
+int main()
+{
+    recurse(1);
+    return 0;
+}
+#include<stdio.h>
+void recurse();
+int main()
+{
+    recurse();
+    return 0;
+}
+
+void recurse()
+{
+    static int count=1;
+    if(count>5){
+        return;
+    }
+    printf("count=%d", count);
+    count=count+1;
+    recurse();
+}
+
+//recurse a program
+//use stack memory
+#include<stdio.h>
+void recurse1();
+void recurse2();
+void recurse3();
+int main()
+{
+    recurse1();
+    return 0;
+}
+
+void recurse1()
+{
+    printf("your pc hacked !");
+    recurse2();
+}
+void recurse2(){
+    printf("hacked your life !");
+    recurse3();
+}
+void recurse3(){
+    printf("i shut up !");
+    recurse3();
+
+}
+#include<stdio.h>
+int factorial(int n)
+{
+    if(n==0){
+        return 1;
+    }
+
+    return n* factorial(n-1);
+
+}
+
+int main()
+{
+    int n;
+    scanf("%d", &n);
+    if(n<0){
+        printf("undifined");
+        return 0;
+    }
+
+    printf("Factorial of %d is %d\n", n ,factorial(n));
+
+    return 0;
+}
+#include<stdio.h>
+int n, factorialCalls=0;
+
+int factorial(n)
+{
+    if(n==0){
+        return 1;
+    }
+    factorialCalls=factorialCalls+1;
+    return n* factorial(n-1);
+
+}
+int main()
+{
+
+    scanf("%d", &n);
+    if(n<0){
+        printf("undifined");
+        return 0;
+    }
+
+    printf("Factorial of %d is %d\n", n ,factorial(n));
+    printf("Number of call of factorial function is %d\n",factorialCalls);
+
+    return 0;
+}
+#include<stdio.h>
+int fcall=0;
+int fibonacchi(int n)
+{
+    fcall=fcall+1;
+    printf("fcall=%d, n=%d\n", fcall, n);
+
+    if(n==1 || n==2){
+        return 1;
+    }
+    //printf("fcall=%d, n=%d\n", fcall, n);
+
+    return fibonacchi(n-1)+fibonacchi(n-2);
+}
+
+int main(){
+    int n;
+    char s[3];
+    scanf("%d",&n);
+
+    if(n==1){
+        strcpy(s, "st");
+    }
+    else if(n==2){
+        strcpy(s, "nd");
+    }
+    else if(n==3){
+        strcpy(s, "rd");
+    }
+    else{
+        strcpy(s, "th");
+    }
+    printf("%d%s is fibonacchi number is %d\n", n, s, fibonacchi(n));
+    printf("Number of function call is %d", fcall);
+
+    return 0;
+}
+#include<stdio.h>
+#include<string.h>
+
+int fcalls=0;
+int fibo[50];
+
+int fib(int n)
+{
+    fcalls=fcalls+1;
+    if(fibo[n]!=0){
+        return fibo[0];
+    }
+    if(n==1 || n==2){
+        return fibo[n];
+    }
+    fibo[n]=fib(n-1)+fib(n-2);
+
+    return fibo[n];
+}
+
+int main()
+{
+    int n;
+    char s[3];
+
+    fibo[1]=1;
+    fibo[2]=1;
+
+    scanf("%d", &n);
+
+    if(n==1){
+        strcpy(s,"st");
+    }
+    else if(n==2){
+        strcpy(s,"nd");
+    }
+    else if(n==3){
+        strcpy(s, "rd");
+    }
+    else{
+        strcpy(s, "th");
+    }
+
+    printf("%d%s fibonacchi number is %d", fib(n));
+    printf("Number of function calls:%d\n",fcalls);
+
+    for(n=1; n<12; n++){
+        printf("%d: %d \n", n, fibo[n]);
+    }
+
+    return 0;
+}
+#include<stdio.h>
+
+int recurse(int n)
+{
+    static int fcall=0;
+    fcall=fcall+1;
+    if(n==1){
+        return 1;
+    }
+    printf("n is %d\n", n);
+    printf("fcall is %d\n", fcall);
+    return n + recurse(n-1);
+}
+
+int main()
+{
+    int n;
+    scanf("%d", &n);
+    printf("sum of the number is %d\n", recurse(n));
+
+    return 0;
+}
+#include<stdio.h>
+
+int recurse(int n)
+{
+    static int fcall=0;
+    fcall=fcall+1;
+    if(n==1){
+        return 1;
+    }
+    printf("n is %d\n", n);
+    printf("fcall is %d\n", fcall);
+    return n + recurse(n-1);
+}
+
+int main()
+{
+    int n;
+    scanf("%d", &n);
+    printf("sum of the number is %d\n", recurse(n));
+
+    return 0;
+}
+
+ 

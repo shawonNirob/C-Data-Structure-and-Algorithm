@@ -1,0 +1,320 @@
+#include <stdio.h>
+#include <stdlib.h>
+
+int main()
+
+{
+    struct student {
+        int id;
+        char* name[40];
+    };
+    struct student one;
+    one.id=1;
+    strcpy(one.name, "shawon");
+
+    struct student two;
+    two.id=2;
+    strcpy(two.name, "shawon1100");
+
+    struct student three;
+    three.id=3;
+    strcpy(three.name, "shawon1200");
+
+    printf("ID one: %d\n",  one.id);
+    printf("name one: %s\n", one.name);
+    printf("ID two: %d\n",  two.id);
+    printf("name two: %s\n", two.name);
+    printf("ID three: %d\n",  three.id);
+    printf("name three: %s\n", three.name);
+
+    return 0;
+}
+#include<stdio.h>
+#include<string.h>
+ int main(){
+    struct student{
+        int id;
+        char name[40];
+    };
+    struct student one;
+
+    scanf("%d", &one.id);
+    scanf("%s", one.name);
+
+
+    printf("one id: %d\n", one.id);
+    printf("one name: %s\n", one.name);
+    printf("\n\n");
+
+
+    return 0;
+}
+#include<stdio.h>
+int main()
+{
+    struct student{
+        int id;
+        char name[40];
+    };
+    struct student one;
+    scanf("%d", &one.id);
+    scanf("%s", one.name);
+
+    struct student two;
+    scanf("%d",&two.id);
+    scanf("%s", two.name);
+
+    struct student three;
+    scanf("%d", &three.id);
+    scanf("%s", three.name);
+
+    printf("one id: %d\n", one.id);
+    printf("one name: %s", one.name);
+    printf("\n\n");
+
+    printf("two id: %d\n", two.id);
+    printf("two name: %s", two.name);
+    printf("\n\n");
+
+    printf("Three id: %d\n", three.id);
+    printf("Three name: %s", three.name);
+    printf("\n\n");
+
+    return 0;
+}
+#include<stdio.h>
+#include<string.h>
+int main()
+{
+    struct nametype{
+        char first[30];
+        char last[30];
+    };
+    struct student{
+        int id;
+        struct nametype name;
+    };
+
+    struct student one;
+
+    one.id=1;
+    strcpy(one.name.first, "shawon");
+    strcpy(one.name.last, "nirob");
+
+    printf("ID: %d\n", one.id);
+    printf("Name: %s %s\n", one.name.first, one.name.last);
+
+    return 0;
+}
+#include<stdio.h>
+#include<string.h>
+int main()
+{
+    struct nametype{
+        char first[30];
+        char last[30];
+    };
+    struct student{
+        int id;
+        struct nametype name;
+    };
+
+    struct student one;
+
+    scanf("%d", &one.id);
+    scanf("%s", one.name.first);
+    scanf("%s", one.name.last);
+
+    printf("ID: %d\n", one.id);
+    printf("Name: %s %s\n", one.name.first, one.name.last);
+
+    return 0;
+}
+#include<stdio.h>
+#include<stdio.h>
+void main()
+{
+    struct nametype{
+        char first[40];
+        char last[40];
+    };
+    struct student{
+        int id;
+        struct nametype name;
+
+    };
+    int n;
+    struct student trackno[n];
+    n=5;
+
+    for(int i=0; i<n; i++){
+        printf("enter the ID of the student no %d: ", i+1);
+        scanf("%d",&trackno[i].id);
+        printf("enter the first name of the student no %d: ", i+1);
+        scanf("%s", trackno[i].name.first);
+        printf("enter the last name of the student no %d: ", i+1);
+        scanf("%s", trackno[i].name.last);
+        printf("\n\n");
+    }
+    printf("output: \n");
+
+    for(int i=0; i<n; i++){
+        printf("student ID: %d\n", trackno[i].id);
+        printf("Student Name: %s %s\n", trackno[i].name.first, trackno[i].name.last);
+        printf("\n\n");
+    }
+}
+#include<stdio.h>
+#include<string.h>
+typedef struct{
+        char first[40];
+        char last[40];
+    }nametype;
+    typedef struct{
+        int id;
+        nametype name;
+        char grade[3];
+
+    }student;
+void calculateGrade(student s,int marks){
+    if(marks>=80){
+        strcpy(s.grade, "A+");
+    }
+     else if(marks>=70){
+        strcpy(s.grade, "A");
+    }
+     else if(marks>=60){
+        strcpy(s.grade, "A-");
+    }
+     else if(marks>=50){
+        strcpy(s.grade, "B");
+    }
+     else if(marks>=40){
+        strcpy(s.grade, "C");
+    }
+     else {
+        strcpy(s.grade, "F");
+    }
+}
+
+int main()
+{
+
+    int n=3;
+    student trackno[n];
+    int marks[]={54,85,25};
+
+    for(int i=0; i<n; i++){
+        printf("enter the ID of the student no %d: ", i+1);
+        scanf("%d",&trackno[i].id);
+        printf("enter the first name of the student no %d: ", i+1);
+        scanf("%s", trackno[i].name.first);
+        printf("enter the last name of the student no %d: ", i+1);
+        scanf("%s", trackno[i].name.last);
+        strcpy(trackno[i].grade, "");
+        printf("\n\n");
+    }
+
+    for(int i=0; i<n; i++){
+        calculateGrade(trackno[i], marks[i]);
+    }
+
+    printf("output: \n");
+
+    for(int i=0; i<n; i++){
+        printf("student ID: %d\n", trackno[i].id);
+        printf("Student Name: %s %s\n", trackno[i].name.first, trackno[i].name.last);
+        printf("Student Grade: %s\n", trackno[i].grade);
+        printf("\n\n");
+    }
+    return 0;
+}
+
+#include<stdio.h>
+void plusTen1(int a);
+void plusTen2(int* a);
+int main()
+{
+    int a;
+    a=5;
+    plusTen1(a);
+    printf("a=%d\n", a);
+
+    plusTen2(&a);
+    printf("a=%d\n", a);
+
+    return 0;
+}
+
+void plusTen1(int a){
+    a=a+10;
+}
+void plusTen2(int* a){
+    *a=*a+10;
+}
+#include<stdio.h>
+#include<string.h>
+typedef struct{
+        char first[40];
+        char last[40];
+    }nametype;
+    typedef struct{
+        int id;
+        nametype name;
+        char grade[3];
+
+    }student;
+void calculateGrade(student* s,int marks){
+    if(marks>=80){
+        strcpy(s->grade, "A+");
+    }
+     else if(marks>=70){
+        strcpy(s->grade, "A");
+    }
+     else if(marks>=60){
+        strcpy(s->grade, "A-");
+    }
+     else if(marks>=50){
+        strcpy(s->grade, "B");
+    }
+     else if(marks>=40){
+        strcpy(s->grade, "C");
+    }
+     else {
+        strcpy(s->grade, "F");
+    }
+}
+
+int main()
+{
+
+    int n=3;
+    student trackno[n];
+    int marks[]={54,85,25};
+
+    for(int i=0; i<n; i++){
+        printf("enter the ID of the student no %d: ", i+1);
+        scanf("%d",&trackno[i].id);
+        printf("enter the first name of the student no %d: ", i+1);
+        scanf("%s", trackno[i].name.first);
+        printf("enter the last name of the student no %d: ", i+1);
+        scanf("%s", trackno[i].name.last);
+        strcpy(trackno[i].grade, "");
+        printf("\n\n");
+    }
+
+    for(int i=0; i<n; i++){
+        calculateGrade(&trackno[i], marks[i]);
+    }
+
+    printf("output: \n");
+
+    for(int i=0; i<n; i++){
+        printf("student ID: %d\n", trackno[i].id);
+        printf("Student Name: %s %s\n", trackno[i].name.first, trackno[i].name.last);
+        printf("Student Grade: %s\n", trackno[i].grade);
+        printf("\n\n");
+    }
+    return 0;
+}
+
