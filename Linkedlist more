@@ -1,0 +1,703 @@
+Node *sortBuble(Node *head){
+    int item;
+    Node *currentNode=head;
+    Node *lastNode;
+    while(currentNode!=NULL){
+        while()
+        if(currentNode->data > currentNode->next->data){
+            item = currentNode->data;
+            currentNode->data = currentNode->next->data;
+            currentNode->next->data = item;
+        }
+       currentNode = currentNode->next;
+       if(currentNode->next==NULL){
+            currentNode->next->isVisited=1;
+       }
+       
+    }
+    
+}
+#include <stdio.h>
+#include <stdlib.h>
+
+typedef struct node Node;
+
+struct node{
+    int data;
+    int isVisited;
+    Node *next;
+};
+
+Node *createNode(int item, Node *next){
+    Node *newNode;
+    newNode=(Node*)malloc(sizeof(Node));
+    if(newNode==NULL){
+        printf("new node create failled");
+        exit(1);
+    }
+
+    newNode->data=item;
+    newNode->isVisited=0;
+    newNode->next=next;
+
+    return newNode;
+}
+
+Node *removeNode(Node *head, Node *node){
+    if(node==head){
+        head=node->next;
+
+        free(node);
+        return head;
+    }
+    Node *currentNode=head;
+    while(currentNode!=NULL){
+        if(currentNode->next==node){
+            break;
+        }
+        currentNode=currentNode->next;
+    }
+    if(currentNode==NULL){
+        printf("Node not found\n");
+        return head;
+    }
+    currentNode->next=node->next;
+    free(node);
+
+    return head;
+}
+void printLinkedlist(Node *head){
+    Node *currentNode;
+    currentNode=head;
+    while(currentNode!=NULL){
+        printf("%d\t", currentNode->data);
+        currentNode=currentNode->next;
+    }
+    printf("\n");
+}
+
+Node *insert(Node *node, int item){
+    Node *newNode;
+    newNode=createNode(item, node->next);
+    node->next=newNode;
+
+    return newNode;
+}
+Node *jointList(Node *head){
+    Node *currentNode=head;
+    while(currentNode->next!=NULL){
+        currentNode=currentNode->next;
+    }
+    if(currentNode->next==NULL){
+        currentNode->next=head;
+    }
+    return head;
+}
+void printJointList(Node *head){
+    Node *currentNode=head;
+    while(currentNode->isVisited!=1){
+            printf("%d\t", currentNode->data);
+            currentNode->isVisited=1;
+            currentNode=currentNode->next;
+    }
+}
+Node *removeJoint(Node *head){
+    Node *currentNode=head;
+    while(currentNode!=NULL){
+        if(currentNode->next=head){
+            break;
+        }
+        currentNode=currentNode->next;
+    }
+    if(currentNode->next==head){
+        currentNode->next=NULL;
+    }
+    return head;
+
+}
+
+
+
+
+Node *detectAndRemoveJoin(Node *head){
+    Node *currentNode=head;
+    Node *nextNode = NULL;
+    int isLoopDetected = 0;
+
+    while(currentNode!=NULL){
+        nextNode = currentNode->next;
+
+        if( nextNode-> isVisited == 1){
+            isLoopDetected = 1;
+            currentNode -> next = NULL;
+            break;
+        }
+
+        currentNode->isVisited = 1;
+        currentNode = currentNode->next;
+    }
+
+    if(isLoopDetected){
+        return currentNode;
+    }else{
+        return NULL;
+    }
+
+}
+
+int countNode(Node *head){
+    Node *currentNode=head;
+    int count=0;
+    while(currentNode!=NULL){
+        count++;
+        currentNode=currentNode->next;
+    }
+    return count;
+}
+
+Node *sortBuble(Node *head, int count){
+    int item;
+    Node *currentNode=head;
+    Node *lastNode;
+    for(int i=0; i<count; i++){
+    while(currentNode!=NULL){
+        if(currentNode->data > currentNode->next->data){
+            item = currentNode->data;
+            currentNode->data = currentNode->next->data;
+            currentNode->next->data = item;
+        }
+       currentNode = currentNode->next;
+       if(currentNode->next==NULL){
+            currentNode->next->isVisited=1;
+            }
+
+        }
+
+    }
+}
+int main()
+{
+    Node *n1,*n2, *n3,*n4,*n5,*n6, *head,*count, *loopNode;
+
+    n1=createNode(10, NULL);
+    head=n1;
+    printLinkedlist(head);
+
+    n2=insert(n1, 20);
+    printLinkedlist(head);
+
+    n3=insert(n2, 30);
+    printLinkedlist(head);
+
+    n4=insert(n3, 40);
+    printLinkedlist(head);
+
+    n5=insert(n4, 50);
+    printLinkedlist(head);
+
+    removeNode(head, n5);
+    printLinkedlist(head);
+
+    n6=insert(n3, 70);
+
+    /*head=jointList(head);
+
+    n6=insert(n3, 70);
+    printJointList(head);
+
+    loopNode = detectAndRemoveJoin(head);
+
+    if(loopNode !=NULL){
+
+    printf("\n Loop Node : %d",loopNode->data);
+    }
+    */
+    printf("\n");
+
+    printLinkedlist(head);
+
+    count = countNode(head);
+    printf("count=%d\n", count);
+
+    sortBuble(head,count);
+    printLinkedlist(head);
+
+
+    return 0;
+
+}
+void bubbleSort(struct Node *start) 
+{ 
+    int swapped, i; 
+    struct Node *ptr1; 
+    struct Node *lptr = NULL; 
+  
+    /* Checking for empty list */
+    if (start == NULL) 
+        return; 
+  
+    do
+    { 
+        swapped = 0; 
+        ptr1 = start; 
+  
+        while (ptr1->next != lptr) 
+        { 
+            if (ptr1->data > ptr1->next->data) 
+            {  
+                swap(ptr1, ptr1->next); 
+                swapped = 1; 
+            } 
+            ptr1 = ptr1->next; 
+        } 
+        lptr = ptr1; 
+    } 
+    while (swapped); 
+} 
+  #include <stdio.h>
+#include <stdlib.h>
+
+typedef struct node Node;
+
+struct node{
+    int data;
+    int isVisited;
+    Node *next;
+};
+
+Node *createNode(int item, Node *next){
+    Node *newNode;
+    newNode=(Node*)malloc(sizeof(Node));
+    if(newNode==NULL){
+        printf("new node create failled");
+        exit(1);
+    }
+
+    newNode->data=item;
+    newNode->isVisited=0;
+    newNode->next=next;
+
+    return newNode;
+}
+
+Node *removeNode(Node *head, Node *node){
+    if(node==head){
+        head=node->next;
+
+        free(node);
+        return head;
+    }
+    Node *currentNode=head;
+    while(currentNode!=NULL){
+        if(currentNode->next==node){
+            break;
+        }
+        currentNode=currentNode->next;
+    }
+    if(currentNode==NULL){
+        printf("Node not found\n");
+        return head;
+    }
+    currentNode->next=node->next;
+    free(node);
+
+    return head;
+}
+void printLinkedlist(Node *head){
+    Node *currentNode;
+    currentNode=head;
+    while(currentNode!=NULL){
+        printf("%d\t", currentNode->data);
+        currentNode=currentNode->next;
+    }
+    printf("\n");
+}
+
+Node *insert(Node *node, int item){
+    Node *newNode;
+    newNode=createNode(item, node->next);
+    node->next=newNode;
+
+    return newNode;
+}
+Node *jointList(Node *head){
+    Node *currentNode=head;
+    while(currentNode->next!=NULL){
+        currentNode=currentNode->next;
+    }
+    if(currentNode->next==NULL){
+        currentNode->next=head;
+    }
+    return head;
+}
+void printJointList(Node *head){
+    Node *currentNode=head;
+    while(currentNode->isVisited!=1){
+            printf("%d\t", currentNode->data);
+            currentNode->isVisited=1;
+            currentNode=currentNode->next;
+    }
+}
+Node *removeJoint(Node *head){
+    Node *currentNode=head;
+    while(currentNode!=NULL){
+        if(currentNode->next=head){
+            break;
+        }
+        currentNode=currentNode->next;
+    }
+    if(currentNode->next==head){
+        currentNode->next=NULL;
+    }
+    return head;
+
+}
+
+
+
+
+Node *detectAndRemoveJoin(Node *head){
+    Node *currentNode=head;
+    Node *nextNode = NULL;
+    int isLoopDetected = 0;
+
+    while(currentNode!=NULL){
+        nextNode = currentNode->next;
+
+        if( nextNode-> isVisited == 1){
+            isLoopDetected = 1;
+            currentNode -> next = NULL;
+            break;
+        }
+
+        currentNode->isVisited = 1;
+        currentNode = currentNode->next;
+    }
+
+    if(isLoopDetected){
+        return currentNode;
+    }else{
+        return NULL;
+    }
+
+}
+
+int countNode(Node *head){
+    Node *currentNode=head;
+    int count=0;
+    while(currentNode!=NULL){
+        count++;
+        currentNode=currentNode->next;
+    }
+    return count;
+}
+void swap(Node *a, Node *b){
+    int temp=a->data;
+    a->data=b->data;
+    b->data=temp;
+}
+
+Node *sortBuble(Node *head){
+   Node *currentNode;
+   Node *lastNode=NULL;
+   int swaped;
+
+   if(head==NULL){
+        return;
+   }
+
+   do
+   {
+       swaped=0;
+       currentNode=head;
+       while(currentNode->next!=lastNode){
+            if(currentNode->data > currentNode->next->data){
+                swap(currentNode,currentNode->next);
+                swaped=1;
+            }
+            currentNode=currentNode->next;
+       }
+       lastNode=currentNode;
+    }
+    while(swaped);
+    }
+
+int main()
+{
+    Node *n1,*n2, *n3,*n4,*n5,*n6, *head,*count, *loopNode;
+
+    n1=createNode(10, NULL);
+    head=n1;
+    printLinkedlist(head);
+
+    n2=insert(n1, 20);
+    printLinkedlist(head);
+
+    n3=insert(n2, 30);
+    printLinkedlist(head);
+
+    insert(n3, 80);
+    insert(n3, 100);
+
+    n4=insert(n3, 40);
+    printLinkedlist(head);
+
+    n5=insert(n4, 50);
+    printLinkedlist(head);
+
+    removeNode(head, n5);
+    printLinkedlist(head);
+
+    n6=insert(n3, 70);
+
+    /*head=jointList(head);
+
+    n6=insert(n3, 70);
+    printJointList(head);
+
+    loopNode = detectAndRemoveJoin(head);
+
+    if(loopNode !=NULL){
+
+    printf("\n Loop Node : %d",loopNode->data);
+    }
+    */
+    printf("\n");
+
+    printLinkedlist(head);
+
+    count = countNode(head);
+    printf("count=%d\n", count);
+
+    sortBuble(head);
+    printLinkedlist(head);
+
+
+    return 0;
+
+}
+#include <stdio.h>
+#include <stdlib.h>
+
+typedef struct node Node;
+
+struct node{
+    int data;
+    int isVisited;
+    Node *next;
+};
+
+Node *createNode(int item, Node *next){
+    Node *newNode;
+    newNode=(Node*)malloc(sizeof(Node));
+    if(newNode==NULL){
+        printf("new node create failled");
+        exit(1);
+    }
+
+    newNode->data=item;
+    newNode->isVisited=0;
+    newNode->next=next;
+
+    return newNode;
+}
+
+Node *removeNode(Node *head, Node *node){
+    if(node==head){
+        head=node->next;
+
+        free(node);
+        return head;
+    }
+    Node *currentNode=head;
+    while(currentNode!=NULL){
+        if(currentNode->next==node){
+            break;
+        }
+        currentNode=currentNode->next;
+    }
+    if(currentNode==NULL){
+        printf("Node not found\n");
+        return head;
+    }
+    currentNode->next=node->next;
+    free(node);
+
+    return head;
+}
+void printLinkedlist(Node *head){
+    Node *currentNode;
+    currentNode=head;
+    while(currentNode!=NULL){
+        printf("%d\t", currentNode->data);
+        currentNode=currentNode->next;
+    }
+    printf("\n");
+}
+
+Node *insert(Node *node, int item){
+    Node *newNode;
+    newNode=createNode(item, node->next);
+    node->next=newNode;
+
+    return newNode;
+}
+Node *jointList(Node *head){
+    Node *currentNode=head;
+    while(currentNode->next!=NULL){
+        currentNode=currentNode->next;
+    }
+    if(currentNode->next==NULL){
+        currentNode->next=head;
+    }
+    return head;
+}
+void printJointList(Node *head){
+    Node *currentNode=head;
+    while(currentNode->isVisited!=1){
+            printf("%d\t", currentNode->data);
+            currentNode->isVisited=1;
+            currentNode=currentNode->next;
+    }
+}
+Node *removeJoint(Node *head){
+    Node *currentNode=head;
+    while(currentNode!=NULL){
+        if(currentNode->next=head){
+            break;
+        }
+        currentNode=currentNode->next;
+    }
+    if(currentNode->next==head){
+        currentNode->next=NULL;
+    }
+    return head;
+
+}
+
+
+
+
+Node *detectAndRemoveJoin(Node *head){
+    Node *currentNode=head;
+    Node *nextNode = NULL;
+    int isLoopDetected = 0;
+
+    while(currentNode!=NULL){
+        nextNode = currentNode->next;
+
+        if( nextNode-> isVisited == 1){
+            isLoopDetected = 1;
+            currentNode -> next = NULL;
+            break;
+        }
+
+        currentNode->isVisited = 1;
+        currentNode = currentNode->next;
+    }
+
+    if(isLoopDetected){
+        return currentNode;
+    }else{
+        return NULL;
+    }
+
+}
+
+int countNode(Node *head){
+    Node *currentNode=head;
+    int count=0;
+    while(currentNode!=NULL){
+        count++;
+        currentNode=currentNode->next;
+    }
+    return count;
+}
+void swap(Node *a, Node *b){
+    int temp=a->data;
+    a->data=b->data;
+    b->data=temp;
+}
+
+Node *sortBuble(Node *head){
+   Node *currentNode;
+   Node *lastNode=NULL;
+   int swaped;
+
+   if(head==NULL){
+        return;
+   }
+
+   do
+   {
+        currentNode=head;
+        currentNode->isVisited=1;
+        while(currentNode->next!=lastNode){
+            if(currentNode->data > currentNode->next->data){
+                swap(currentNode,currentNode->next);
+            }
+            currentNode=currentNode->next;
+
+       }
+       lastNode=currentNode;
+
+
+    }
+    while(currentNode->isVisited!=1);
+    }
+
+int main()
+{
+    Node *n1,*n2, *n3,*n4,*n5,*n6, *head,*count, *loopNode;
+
+    n1=createNode(90, NULL);
+    head=n1;
+    printLinkedlist(head);
+
+    n2=insert(n1, 20);
+    printLinkedlist(head);
+
+    n3=insert(n2, 30);
+    printLinkedlist(head);
+
+    insert(n3, 54);
+    insert(n3, 14);
+
+    n4=insert(n3, 40);
+    printLinkedlist(head);
+
+    n5=insert(n4, 50);
+    printLinkedlist(head);
+
+    removeNode(head, n5);
+    printLinkedlist(head);
+
+    n6=insert(n3, 70);
+
+    /*head=jointList(head);
+
+    n6=insert(n3, 70);
+    printJointList(head);
+
+    loopNode = detectAndRemoveJoin(head);
+
+    if(loopNode !=NULL){
+
+    printf("\n Loop Node : %d",loopNode->data);
+    }
+    */
+    printf("\n");
+
+    printLinkedlist(head);
+
+    count = countNode(head);
+    printf("count=%d\n", count);
+
+    sortBuble(head);
+    printLinkedlist(head);
+
+
+    return 0;
+
+}
+

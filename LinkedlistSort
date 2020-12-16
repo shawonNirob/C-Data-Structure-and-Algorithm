@@ -1,0 +1,86 @@
+void swap(Node *a, Node *b){
+    int temp=a->data;
+    a->data=b->data;
+    b->data=temp;
+}
+
+Node *sortBuble(Node *head){
+   Node *currentNode;
+   Node *lastNode=NULL;
+   int swaped;
+
+   if(head==NULL){
+        return;
+   }
+
+   do
+   {
+       swaped=0;
+       currentNode=head;
+       while(currentNode->next!=lastNode){
+            if(currentNode->data > currentNode->next->data){
+                swap(currentNode,currentNode->next);
+                swaped=1;
+            }
+            currentNode=currentNode->next;
+       }
+       lastNode=currentNode;
+    }
+    while(swaped);
+    }
+void swap(Node *a, Node *b){
+    int temp=a->data;
+    a->data=b->data;
+    b->data=temp;
+}
+
+Node *sortBuble(Node *head){
+   Node *currentNode;
+   Node *lastNode=NULL;
+   int swaped;
+
+   if(head==NULL){
+        return;
+   }
+
+   do
+   {
+       swaped=0;
+       currentNode=head;
+       while(currentNode->next!=lastNode){
+            if(currentNode->data > currentNode->next->data){
+                swap(currentNode,currentNode->next);
+                currentNode->isVisited=1;
+            }
+            currentNode=currentNode->next;
+       }
+       lastNode=currentNode;
+    }
+    while(currentNode->isVisited!=1);
+    }
+
+Node *sortBuble(Node *head){
+   Node *currentNode;
+   Node *lastNode=NULL;
+   int swaped;
+
+   if(head==NULL){
+        return;
+   }
+
+   do
+   {
+        currentNode=head;
+        currentNode->isVisited=1;
+        while(currentNode->next!=lastNode){
+            if(currentNode->data > currentNode->next->data){
+                swap(currentNode,currentNode->next);
+            }
+            currentNode=currentNode->next;
+
+       }
+       lastNode=currentNode;
+    }
+    while(currentNode->isVisited!=1);
+    }
+

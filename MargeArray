@@ -1,0 +1,28 @@
+#include<stdio.h>
+#include<stdlib.h>
+
+void printValue(int dataArray[], int length){
+    for(int i=0 ; i <length ; i++){
+        printf("%d ",dataArray[i]);
+    }
+}
+
+int * addArray(int targetArray[], int targetArraySize,int fromArry[],int fromArraySize,int position){
+    for(int i=0; i<fromArraySize; i++){
+        targetArray[position]=fromArry[i];
+        position++;
+        }
+        return targetArray;
+}
+int main(){
+    int a[3]={1,2,3};
+    int b[2]={4,5};
+    int c[5]={0,0,0,0,0};
+
+    addArray(c,5,a,3,0);
+    printValue(c,5);
+    printf("\n\n");
+    addArray(c,5,b,2,3);
+    printValue(c,5);
+}
+

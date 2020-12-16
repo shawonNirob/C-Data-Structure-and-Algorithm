@@ -1,0 +1,59 @@
+#include<stdio.h>
+#include<stdlib.h>
+
+int add(int a ,int b){
+    return a + b;
+}
+
+int main(){
+
+    double cal;
+    int i, length, temp,sum=0;
+    printf("enter number of length:");
+    scanf("%d", &length);
+
+    for(int i=0; i<length; i++){
+
+        printf("enter number %d\n", i+1);
+        scanf("%d", &temp);
+        printf("temp: %d\n", temp);
+        sum=add(sum, temp);
+        printf("sum=%d\n", sum);
+    }
+
+    cal=(double)sum/length;
+    printf("the avarage= %0.3lf\n",cal);
+
+    return 0;
+}
+#include<stdio.h>
+#include<stdlib.h>
+
+#define DEBUG 0
+
+int add(int a ,int b){
+    return a + b;
+}
+
+int main(){
+
+    double cal;
+    int i, length, temp,sum=0;
+    printf("enter number of length:");
+    scanf("%d", &length);
+
+    for(int i=0; i<length; i++){
+
+        printf("enter number %d\n", i+1);
+        scanf("%d", &temp);
+        if(DEBUG)printf("temp: %d\n", temp);
+        sum=add(sum, temp);
+        if(DEBUG)printf("sum=%d\n", sum);
+    }
+
+    cal=(double)sum/length;
+    printf("the avarage= %0.3lf\n",cal);
+
+    return 0;
+}
+
