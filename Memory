@@ -17,7 +17,7 @@ int main()
     while(1){
     char smallLetter, capitalLetter;
     printf("please enter a small letter: ");
-    smallLetter=getchar();
+    smallLetter=getchar(); //The getchar function used when single character input is required from the user. 
     if(1==forNumber(smallLetter)){
         printf("the number is %c", smallLetter);
     }
