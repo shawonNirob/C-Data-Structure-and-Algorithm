@@ -122,6 +122,7 @@ return 0;
 int main()
 {
     void *vp;
+    //Void is an empty data type that has no value
     int n=10;
 
     vp=&n;
@@ -140,6 +141,7 @@ int main()
 int main()
 {
     void *vp;
+    //Void is an empty data type that has no value
     double n=10.89;
 
     vp=&n;
