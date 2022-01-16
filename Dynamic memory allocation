@@ -232,6 +232,10 @@ int main(){
         scanf("%d", &n);
         studentNumber[i]=n;
         marks[i]=(int *)calloc(n, sizeof(int));
+        if(marks[i]==NULL){
+            printf("memory allocation failed");
+            exit(0);
+         }
         for(int j=0; j<n; ++j){
             printf("enter the marks of %d roll %d class: ", j+1, i+1);
             scanf("%d", &marks[i][j]);
