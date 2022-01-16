@@ -222,3 +222,33 @@ int main()
 
 }
 
+#include<stdio.h>
+#include<stdlib.h>
+int main(){
+    int* marks[5], studentNumber[5];
+    int n;
+    for(int i=0; i<5; i++){
+        printf("Please enter the student number for class %d ", i+1);
+        scanf("%d", &n);
+        studentNumber[i]=n;
+        marks[i]=(int *)calloc(n, sizeof(int));
+        for(int j=0; j<n; ++j){
+            printf("enter the marks of %d roll %d class: ", j+1, i+1);
+            scanf("%d", &marks[i][j]);
+        }
+    }
+    for(int i=0; i<5; i++){
+        printf("Class %d: \t", i+1);
+        for(int j=0; j<studentNumber[i]; ++j){
+                printf("%d\t", marks[i][j]);
+
+        }
+        printf("\n");
+    }
+    for(int i=0; i<5; ++i){
+        free(marks[i]);
+    }
+
+    return 0;
+}
+
