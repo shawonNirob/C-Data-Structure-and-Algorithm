@@ -32,7 +32,7 @@ int main()
     return 0;
 }
 
-
+//
 #include <stdio.h>
 #include <stdlib.h>
 
@@ -78,7 +78,7 @@ int main(){
     return 0;
 
 }
-
+//
 // Linked list implementation in C
 
 #include <stdio.h>
@@ -124,6 +124,11 @@ int main() {
   head = one;
   printLinkedlist(head);
 }
+
+//Prehend
+//Insert Node before Head
+
+
 #include <stdio.h>
 #include <stdlib.h>
 
@@ -172,6 +177,10 @@ int main()
     return 0;
 
 }
+
+
+//append
+//Insert Node middle of Node
 
 #include <stdio.h>
 #include <stdlib.h>
@@ -247,6 +256,9 @@ int main()
 
     return 0;
 }
+//
+
+//
 
 #include <stdio.h>
 #include <stdlib.h>
