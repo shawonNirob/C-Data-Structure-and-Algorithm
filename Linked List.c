@@ -180,7 +180,7 @@ int main()
 
 
 //append
-//Insert Node middle of Node
+//Insert Node at the end
 
 #include <stdio.h>
 #include <stdlib.h>
@@ -256,9 +256,7 @@ int main()
 
     return 0;
 }
-//
-
-//
+//Search in a LinkedList
 
 #include <stdio.h>
 #include <stdlib.h>
@@ -354,6 +352,7 @@ int main()
     return 0;
 }
 
+//Total Node Count
 
 #include <stdio.h>
 #include <stdlib.h>
@@ -476,6 +475,8 @@ int main()
 
     return 0;
 }
+
+//
 
 #include <stdio.h>
 #include <stdlib.h>
@@ -633,6 +634,9 @@ int main()
 
     return 0;
 }
+
+//insert
+
 #include <stdio.h>
 #include <stdlib.h>
 
@@ -792,6 +796,10 @@ int main()
     printLinkedlist(head);
     return 0;
 }
+
+//Doubly Linked List
+
+
 #include<stdio.h>
 #include<stdlib.h>
 
@@ -878,8 +886,6 @@ printLinkedlist(Node *head){
     }
     printf("\n");
 }
-
-
 
 int main(){
     Node *head, *n1, *n2, *n3;
