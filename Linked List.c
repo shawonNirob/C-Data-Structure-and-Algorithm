@@ -796,6 +796,172 @@ int main()
     printLinkedlist(head);
     return 0;
 }
+//Swap Nodes in Pairs
+
+#include <stdio.h>
+#include <stdlib.h>
+
+typedef struct node Node;
+
+struct node{
+    int data;
+    Node *next;
+};
+
+Node *createNode(int item, Node *next){
+    Node *newNode;
+    newNode=(Node*)malloc(sizeof(Node));
+    if(newNode==NULL){
+        printf("new node create failled");
+        exit(1);
+    }
+
+    newNode->data=item;
+    newNode->next=next;
+
+    return newNode;
+}
+
+Node *prepend(int item, Node *head){
+    Node *newNode;
+    newNode=createNode(item, head);
+
+    return newNode;
+}
+
+Node *append(int item, Node *head){
+    Node *newNode;
+    newNode=createNode(item, NULL);
+    if(head==NULL){
+        return newNode;
+    }
+
+    Node *currentNode;
+    currentNode=head;
+    while(currentNode->next!=NULL){
+        currentNode=currentNode->next;
+    }
+    currentNode->next=newNode;
+
+    return head;
+}
+
+void printLinkedlist(Node *head){
+    Node *currentNode;
+    currentNode=head;
+    while(currentNode!=NULL){
+        printf("%d\t", currentNode->data);
+        currentNode=currentNode->next;
+    }
+    printf("\n");
+}
+void search(int x, Node *head){
+        Node *currentNode=head;
+        int node=1;
+        while(currentNode!=NULL){
+            if(currentNode->data==x){
+                break;
+                }
+            node++;
+            currentNode=currentNode->next;
+        }
+        if(currentNode==NULL){
+            printf("%d not found\n", x);
+        }
+        else{
+            printf("%d found in node %d", x,node);
+        }
+}
+
+int count(Node *head){
+    Node *currentNode;
+    currentNode=head;
+    int node=1;
+    while(currentNode->next!=NULL){
+
+            printf("node %d\n", node);
+            printf("CurrentNode %d\n", currentNode->data);
+            //printf("CurrentNode %p\n", currentNode->next);
+            printf("");
+
+            node++;
+            currentNode=currentNode->next;
+             printf("node %d\n", node);
+
+    }
+    printf("Total node number %d\n", node);
+}
+Node *removeNode(Node *head, Node *node){
+    if(node==head){
+        head=node->next;
+
+        free(node);
+        return head;
+    }
+    Node *currentNode=head;
+    while(currentNode!=NULL){
+        if(currentNode->next==node){
+            break;
+        }
+        currentNode=currentNode->next;
+    }
+    if(currentNode==NULL){
+        printf("Node not found\n");
+        return head;
+    }
+    currentNode->next=node->next;
+    free(node);
+
+    return head;
+}
+void *insert(Node *node, int item){
+    Node *newNode;
+    newNode=createNode(item, node->next);
+    node->next=newNode;
+}
+Node* swapPairs(Node* head){
+    Node* curr = head;
+    Node* nex= NULL;
+    Node* prev = NULL;
+
+    int count=0;
+    while(curr!= NULL && count<2){
+        nex=curr->next;
+        curr->next = prev;
+        prev = curr;
+        curr = nex;
+        count++;
+    }
+    if(head != NULL){
+        head->next = swapPairs(nex);
+    }
+    return prev;
+}
+
+int main()
+{
+    Node *n1,*n2, *n3,*n4 ,*head;
+
+    n1=createNode(4, NULL);
+    head=n1;
+
+    n2=prepend(3, head);
+    head=n2;
+
+    n3=prepend(2,head);
+    head=n3;
+
+    n4=prepend(1, head);
+    head=n4;
+    printLinkedlist(head);
+
+    head=swapPairs(head);
+    printLinkedlist(head);
+
+
+    return 0;
+}
+
 
 //Doubly Linked List
 
