@@ -775,13 +775,215 @@ int main()
 }
 //
 
-Node *bstMinimum(Node *root){
-    Node *node=root;
-    while(node->left!=NULL){
-        node=node->left;
+#include <stdio.h>
+#include <stdlib.h>
+
+typedef struct node Node;
+
+struct node{
+    int data;
+    Node *parent;
+    Node *left;
+    Node *right;
+};
+Node *createNode(int item){
+    Node *newNode;
+    newNode=(Node*)malloc(sizeof(Node));
+    if(newNode==NULL){
+        printf("node create failed\n");
+        exit(0);
+    }
+    newNode->data=item;
+    newNode->parent=NULL;
+    newNode->left=NULL;
+    newNode->right=NULL;
+
+    return newNode;
+}
+
+Node *addLeftChild(Node *node, Node *child){
+    node->left=child;
+    if(child!= NULL){
+        child->parent=node;
+    }
+}
+Node *addRightChild(Node *node, Node *child){
+    node->right=child;
+    if(child != NULL){
+        child->parent=node;
+    }
+}
+
+Node *insert(Node *root, Node *node){
+    if(root == NULL){
+        root = node;
+        return root;
+    }
+    Node *currentNode=root;
+    Node *parentNode=NULL;
+
+    while(currentNode!=NULL){
+
+        parentNode=currentNode;
+
+        if(node->data > currentNode->data){
+            currentNode=currentNode->right;
+        }
+        else{
+            currentNode=currentNode->left;
+        }
+
+    }
+    if(parentNode->data > node->data){
+        addLeftChild(parentNode, node);
+    }
+    else{
+        addRightChild(parentNode, node);
+    }
+
+    return root;
+}
+
+Node *createTree(){
+
+    Node *root, *node;
+    int ara[]={5,17,3,7,12,19,1,4};
+
+    root=createNode(10);
+    for(int i=0; i<8; i++){
+        node=createNode(ara[i]);
+
+        root=insert(root, node);
+    }
+    return root;
+
+}
+Node *bstSearch(Node *root, int item){
+    Node *node = root;
+    while(node != NULL){
+        if(node->data == item){
+            return node;
+        }
+        if(node->data> item){
+            node = node->left;
+        }else{
+            node=node->right;
+        }
     }
     return node;
+
 }
+void inorder(Node *node)
+{
+    if(node!=NULL)
+    {
+        inorder(node->left);
+        printf("%d\t",node->data);
+        inorder(node->right);
+    }
+    else
+    return;
+}
+void preorder(Node *node)
+{
+    if(node!=NULL)
+    {
+        printf("%d\t",node->data);
+        preorder(node->left);
+        preorder(node->right);
+    }
+    else
+    return;
+}
+void postorder(Node *node)
+{
+    if(node!=NULL)
+    {
+        postorder(node->left);
+        postorder(node->right);
+        printf("%d\t",node->data);
+    }
+    else
+    return;
+}
+Node *bstMinimum(Node *root)
+{
+    Node *curr = root;
+    while(curr->left != NULL){
+        curr = curr->left;
+    }
+    return curr;
+}
+Node *bstTransplant(Node *root, Node *currNode, Node *newNode){
+    if(currNode == root){
+        root = newNode;
+    }
+    else if(currNode == currNode->parent->left){
+        addLeftChild(currNode->parent, newNode);
+    }
+    else{
+        addRightChild(currNode->parent, newNode);
+    }
+    return root;
+}
+Node *bstDelete(Node *root, Node *node){
+    Node *smallestNode;
+    if(node->left == NULL){
+        root = bstTransplant(root, node, node->right);
+    }
+    else if(node->right == NULL){
+        root = bstTransplant(root, node, node->left);
+    }
+    else{
+        smallestNode = bstMinimum(node->right);
+        if(smallestNode->parent != node){
+            root = bstTransplant(root, smallestNode, smallestNode->right);
+            addRightChild(smallestNode, node->right);
+        }
+        root = bstTransplant(root, node, smallestNode);
+        addLeftChild(smallestNode, node->left);
+    }
+    free(node);
+
+    return root;
+}
+int main()
+{
+    Node *node;
+    Node *root=createTree();
+    printf("\n");
+    printf("root: %d\n", root->data);
+    printf("\n\n");
+
+    printf("inorder: ");
+    inorder(root);
+    printf("\n");
+
+    printf("preorder: ");
+    preorder(root);
+    printf("\n");
+
+
+    printf("postorder: ");
+    postorder(root);
+
+    printf("\n");
+    node = bstSearch(root, 20);
+    if(node!=NULL){
+        printf("%d\n", node->data);
+    }else{
+        printf("Node Not found\n");
+    }
+
+    node = bstSearch(root, 10);
+    root = bstDelete(root, node);
+
+    printf("preorder: ");
+    preorder(root);
+    printf("\n");
+}
+
+//
 
 Node *bstMaximum(Node *root){
     Node *node=root;
